@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NRB IT Guidelines ↔ ISO 27001:2022 Interactive Spider Web</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <!-- Top App Bar -->
+  <header class="top-header">
+    <div class="brand-group">
+      <div class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="6" cy="6" r="3"/>
+          <circle cx="18" cy="18" r="3"/>
+          <circle cx="6" cy="18" r="3"/>
+          <circle cx="18" cy="6" r="3"/>
+          <path d="M6 9v6M18 9v6M9 6h6M9 18h6M8.5 8.5l7 7M8.5 15.5l7-7"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>NRB IT Guidelines <span>↔</span> ISO/IEC 27001:2022</h1>
+        <p class="brand-subtitle">Interactive Spider Web Compliance & Mapping Matrix</p>
+      </div>
+    </div>
+
+    <!-- Quick Legend -->
+    <div class="legend-bar">
+      <div class="legend-item" data-filter="full" id="legendFull">
+        <span class="legend-dot dot-full"></span>
+        <span class="legend-name">Full Overlap</span>
+        <span class="legend-count" id="countFull">57</span>
+      </div>
+      <div class="legend-item" data-filter="partial" id="legendPartial">
+        <span class="legend-dot dot-partial"></span>
+        <span class="legend-name">Partial Overlap</span>
+        <span class="legend-count" id="countPartial">21</span>
+      </div>
+      <div class="legend-item" data-filter="none" id="legendNone">
+        <span class="legend-dot dot-none"></span>
+        <span class="legend-name">NRB Unique / No ISO</span>
+        <span class="legend-count" id="countNone">9</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <button class="btn btn-outline" id="btnExportCsv" title="Export Mappings to CSV">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span>Export CSV</span>
+      </button>
+      <button class="btn btn-icon" id="btnThemeToggle" title="Toggle Theme">
+        <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Controls & Filter Toolbar -->
+  <section class="toolbar">
+    <div class="search-box">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search NRB requirements, ISO clauses, or notes...">
+      <button class="search-clear-btn" id="searchClearBtn" title="Clear search">✕</button>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="filter-group">
+      <label>Status:</label>
+      <button class="filter-pill active" data-status="all">All (87)</button>
+      <button class="filter-pill pill-full" data-status="full">Full (57)</button>
+      <button class="filter-pill pill-partial" data-status="partial">Partial (21)</button>
+      <button class="filter-pill pill-none" data-status="none">NRB Unique (9)</button>
+    </div>
+
+    <!-- Section Filter Dropdown -->
+    <div class="dropdown-group">
+      <label for="sectionSelect">NRB Section:</label>
+      <select id="sectionSelect">
+        <option value="all">All 10 Sections</option>
+      </select>
+    </div>
+
+    <!-- ISO Filter Dropdown -->
+    <div class="dropdown-group">
+      <label for="isoScopeSelect">ISO Scope:</label>
+      <select id="isoScopeSelect">
+        <option value="mapped">Mapped Controls Only (73)</option>
+        <option value="all">All Standard Controls (123)</option>
+      </select>
+    </div>
+
+    <!-- Display Options -->
+    <div class="toggle-group">
+      <label class="toggle-label" title="Show all background spider lines or only highlight on hover">
+        <input type="checkbox" id="toggleShowAllLines" checked>
+        <span class="toggle-switch"></span>
+        <span class="toggle-text">Ambient Web</span>
+      </label>
+      <button class="btn btn-sm btn-ghost" id="btnResetFilters" title="Reset all filters">Reset</button>
+    </div>
+  </section>
+
+  <!-- Notification Banner / Stats Info -->
+  <div class="info-strip" id="infoStrip">
+    <div class="info-stat">
+      <span>Showing:</span> <strong id="visibleNrbCount">87</strong> NRB items
+      <span>and</span> <strong id="visibleIsoCount">73</strong> ISO items
+      <span>with</span> <strong id="visibleLinksCount">164</strong> active spider connections
+    </div>
+    <div class="hover-hint" id="hoverHint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <span>Hover any clause to brighten its spider web. Click to lock details.</span>
+    </div>
+  </div>
+
+  <!-- Main Mapping Workspace -->
+  <main class="mapping-workspace" id="workspace">
+    <!-- Left Column: NRB IT Guidelines -->
+    <section class="column-panel left-panel" id="nrbPanel">
+      <div class="panel-header">
+        <div class="panel-title-wrap">
+          <div class="panel-badge nrb-badge">NEPAL RASTRA BANK</div>
+          <h2>NRB IT Guidelines (2012)</h2>
+          <span class="panel-count" id="nrbPanelCount">87 Clauses</span>
+        </div>
+        <button class="btn-icon-sm" id="btnCollapseAllSections" title="Expand / Collapse all sections">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="7 13 12 18 17 13"/>
+            <polyline points="7 6 12 11 17 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="panel-content" id="nrbList">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Center Column: SVG Spider Web Canvas -->
+    <div class="web-connector-container" id="webContainer">
+      <svg id="spiderWebSvg" class="spider-web-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#10b981" flood-opacity="0.9"/>
+          </filter>
+          <filter id="glowYellow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#f59e0b" flood-opacity="0.9"/>
+          </filter>
+          <filter id="glowRed" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ef4444" flood-opacity="0.9"/>
+          </filter>
+        </defs>
+        <g id="spiderLinesLayer"></g>
+      </svg>
+    </div>
+
+    <!-- Right Column: ISO/IEC 27001:2022 -->
+    <section class="column-panel right-panel" id="isoPanel">
+      <div class="panel-header">
+        <div class="panel-title-wrap">
+          <div class="panel-badge iso-badge">INTERNATIONAL STANDARD</div>
+          <h2>ISO/IEC 27001:2022</h2>
+          <span class="panel-count" id="isoPanelCount">73 Mapped Controls</span>
+        </div>
+        <div class="iso-filter-pills">
+          <button class="pill-mini active" data-isogroup="all">All</button>
+          <button class="pill-mini" data-isogroup="Clauses">Clauses 4-10</button>
+          <button class="pill-mini" data-isogroup="A.5">A.5</button>
+          <button class="pill-mini" data-isogroup="A.6">A.6</button>
+          <button class="pill-mini" data-isogroup="A.7">A.7</button>
+          <button class="pill-mini" data-isogroup="A.8">A.8</button>
+        </div>
+      </div>
+
+      <div class="panel-content" id="isoList">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Inspector Drawer / Modal -->
+  <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-header-left">
+        <span class="drawer-chip" id="drawerChip">NRB 1.1</span>
+        <span class="drawer-status-badge" id="drawerStatusBadge">Full Overlap</span>
+      </div>
+      <div class="drawer-header-right">
+        <button class="btn btn-sm btn-outline" id="btnUnlockSelection" title="Unlock active selection">Unpin</button>
+        <button class="btn-icon-close" id="btnCloseDrawer" title="Close inspector">✕</button>
+      </div>
+    </div>
+    
+    <div class="drawer-body" id="drawerBody">
+      <!-- Injected via JavaScript -->
+    </div>
+  </aside>
+
+  <!-- Interactive Floating Line Tooltip -->
+  <div class="line-tooltip" id="lineTooltip"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
