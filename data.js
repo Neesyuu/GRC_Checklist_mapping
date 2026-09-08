@@ -1,12 +1,12 @@
 const MAPPING_DATA = {
   "stats": {
     "totalNrb": 87,
-    "fullNrb": 57,
-    "partialNrb": 21,
+    "fullNrb": 56,
+    "partialNrb": 22,
     "noneNrb": 9,
     "totalIsoControls": 123,
-    "mappedIsoControls": 73,
-    "totalLinks": 164
+    "mappedIsoControls": 71,
+    "totalLinks": 157
   },
   "nrbSections": [
     {
@@ -66,29 +66,33 @@ const MAPPING_DATA = {
       "ref": "1.1",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "Board-approved IT strategy/policy, annual review, long/short-term mapping, operational procedures",
-      "isoRaw": "Clause 5.1 - Leadership and Commitment (Partial)\nClause 5.2 - Policy\nA.5.1 - Policies for information security\nA.5.37 - Documented operating procedures",
-      "overlap": "Full / Partial",
-      "statusType": "mixed",
-      "statusLabel": "Full / Partial",
-      "statusColor": "#10b981",
-      "notes": "ISO covers strategic alignment generally, not the specific long/short-term mapping cadence",
+      "requirement": "Board-approved IT strategy/policy, reviewed yearly, long-term plan mapped to short-term plan, with written operating procedures",
+      "isoRaw": "Clause 5.2 - Policy\nA.5.37 - Documented operating procedures\nClause 5.1 - Leadership and commitment\nA.5.1 - Policies for information security\nClause 9.3.1 - Management review",
+      "overlap": "Partial",
+      "statusType": "partial",
+      "statusLabel": "Partial Overlap",
+      "statusColor": "#f59e0b",
+      "notes": "ISO doesn't specifically ask for mapping the long-term strategy to the short-term one on a set schedule; that detail is NRB-specific.",
       "connectedIso": [
+        {
+          "isoCode": "Clause 5.2",
+          "overlap": "Partial"
+        },
+        {
+          "isoCode": "A.5.37",
+          "overlap": "Partial"
+        },
         {
           "isoCode": "Clause 5.1",
           "overlap": "Partial"
         },
         {
-          "isoCode": "Clause 5.2",
-          "overlap": "Full"
-        },
-        {
           "isoCode": "A.5.1",
-          "overlap": "Full"
+          "overlap": "Partial"
         },
         {
-          "isoCode": "A.5.37",
-          "overlap": "Full"
+          "isoCode": "Clause 9.3.1",
+          "overlap": "Partial"
         }
       ]
     },
@@ -97,8 +101,8 @@ const MAPPING_DATA = {
       "ref": "1.2",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "IT org structure commensurate with size (Dev/Tech/Ops/Assurance)",
-      "isoRaw": "Clause 5.3 - Organizational Roles, Responsibilities and Authorities\nA.5.2 - Information security roles and responsibilities",
+      "requirement": "IT organisation structure matches the bank's size (Development, Technology, Operations, Assurance)",
+      "isoRaw": "Clause 5.3 - Organizational roles, responsibilities and authorities\nA.5.2 - Information security roles and responsibilities\nA.5.3 - Segregation of duties",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -112,6 +116,10 @@ const MAPPING_DATA = {
         {
           "isoCode": "A.5.2",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.3",
+          "overlap": "Full"
         }
       ]
     },
@@ -120,7 +128,7 @@ const MAPPING_DATA = {
       "ref": "1.3",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "IT expertise assessment & periodic training needs",
+      "requirement": "IT expertise is assessed and training needs are reviewed periodically",
       "isoRaw": "Clause 7.2 - Competence\nA.6.3 - Information security awareness, education and training",
       "overlap": "Full",
       "statusType": "full",
@@ -143,8 +151,8 @@ const MAPPING_DATA = {
       "ref": "1.4",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "IT performance monitoring & reporting to management",
-      "isoRaw": "Clause 9.1 - Monitoring, Measurement, Analysis and Evaluation\nClause 9.3.1 - Management Review - General\nClause 9.3.2 - Management Review - Inputs",
+      "requirement": "IT performance is monitored and reported to management",
+      "isoRaw": "Clause 9.1 - Monitoring, measurement, analysis and evaluation\nClause 9.3.1 - Management review",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -158,10 +166,6 @@ const MAPPING_DATA = {
         {
           "isoCode": "Clause 9.3.1",
           "overlap": "Full"
-        },
-        {
-          "isoCode": "Clause 9.3.2",
-          "overlap": "Full"
         }
       ]
     },
@@ -170,28 +174,20 @@ const MAPPING_DATA = {
       "ref": "1.5",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "IT risk in risk management policy, incl. e-banking/suppliers",
-      "isoRaw": "Clause 6.1.1 - Actions to Address Risks and Opportunities - General\nClause 6.1.2 - Information Security Risk Assessment\nClause 6.1.3 - Information Security Risk Treatment\nClause 8.2 - Information Security Risk Assessment (Operation)\nA.5.19 - Information security in supplier relationships",
+      "requirement": "IT risk is part of the bank's risk management policy, including e-banking and supplier risk",
+      "isoRaw": "Clause 6.1.2 - Information security risk assessment\nClause 6.1.3 - Information security risk treatment\nA.5.19 - Information security in supplier relationships",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
-      "notes": "ISO's risk process is more formalized (methodology, SoA) than NRB requires",
+      "notes": "",
       "connectedIso": [
-        {
-          "isoCode": "Clause 6.1.1",
-          "overlap": "Full"
-        },
         {
           "isoCode": "Clause 6.1.2",
           "overlap": "Full"
         },
         {
           "isoCode": "Clause 6.1.3",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "Clause 8.2",
           "overlap": "Full"
         },
         {
@@ -205,13 +201,13 @@ const MAPPING_DATA = {
       "ref": "1.6",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "COBIT or equivalent IT control framework encouraged",
+      "requirement": "Banks are encouraged to use COBIT or a similar IT control framework",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
       "statusLabel": "NRB Unique (Not in ISO)",
       "statusColor": "#ef4444",
-      "notes": "ISO doesn't reference other frameworks; implementing ISO 27001 itself partially satisfies this intent",
+      "notes": "ISO doesn't name or require any other framework; implementing ISO 27001 itself is a recognised international framework, which largely meets the intent.",
       "connectedIso": []
     },
     {
@@ -219,8 +215,8 @@ const MAPPING_DATA = {
       "ref": "1.7",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "Board awareness of IT resource sufficiency",
-      "isoRaw": "Clause 5.1 - Leadership and Commitment",
+      "requirement": "The Board is aware of IT resources and makes sure they are enough for the business",
+      "isoRaw": "Clause 5.1 - Leadership and commitment\nClause 7.1 - Resources",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -230,6 +226,10 @@ const MAPPING_DATA = {
         {
           "isoCode": "Clause 5.1",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "Clause 7.1",
+          "overlap": "Full"
         }
       ]
     },
@@ -238,8 +238,8 @@ const MAPPING_DATA = {
       "ref": "1.8",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "Designated Information Security Officer (ISO)",
-      "isoRaw": "Clause 5.3 - Organizational Roles, Responsibilities and Authorities\nA.5.2 - Information security roles and responsibilities",
+      "requirement": "A senior official is designated as Information Security Officer (ISO)",
+      "isoRaw": "Clause 5.3 - Organizational roles, responsibilities and authorities\nA.5.2 - Information security roles and responsibilities\nA.5.3 - Segregation of duties",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -253,6 +253,10 @@ const MAPPING_DATA = {
         {
           "isoCode": "A.5.2",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.3",
+          "overlap": "Full"
         }
       ]
     },
@@ -261,18 +265,14 @@ const MAPPING_DATA = {
       "ref": "1.9",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "Risk analysis before new technology, incl. product approval process",
-      "isoRaw": "A.5.8 - Information security in project management\nClause 6.1.2 - Information Security Risk Assessment\nClause 6.1.3 - Information Security Risk Treatment\nA.8.29 - Security testing in development and acceptance",
+      "requirement": "A risk analysis is done before adopting new technology, as part of product approval, with testing before go-live",
+      "isoRaw": "Clause 6.1.2 - Information security risk assessment\nClause 6.1.3 - Information security risk treatment\nA.8.29 - Security testing in development and acceptance\nA.5.8 - Information security in project management",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
-        {
-          "isoCode": "A.5.8",
-          "overlap": "Full"
-        },
         {
           "isoCode": "Clause 6.1.2",
           "overlap": "Full"
@@ -284,6 +284,10 @@ const MAPPING_DATA = {
         {
           "isoCode": "A.8.29",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.8",
+          "overlap": "Full"
         }
       ]
     },
@@ -292,7 +296,7 @@ const MAPPING_DATA = {
       "ref": "1.10",
       "sectionId": 1,
       "sectionName": "IT Governance",
-      "requirement": "Process for legal risk from Nepal cyber law",
+      "requirement": "A process exists to manage legal risk arising from Nepal's cyber law",
       "isoRaw": "A.5.31 - Legal, statutory, regulatory and contractual requirements",
       "overlap": "Full",
       "statusType": "full",
@@ -311,8 +315,8 @@ const MAPPING_DATA = {
       "ref": "2.1",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Board-approved Info Security Policy, communicated to all parties",
-      "isoRaw": "A.5.1 - Policies for information security\nClause 5.2 - Policy",
+      "requirement": "A board-approved Information Security Policy exists and is communicated to everyone involved",
+      "isoRaw": "Clause 5.2 - Policy\nClause 7.4 - Communication\nA.5.1 - Policies for information security",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -320,11 +324,15 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.1",
+          "isoCode": "Clause 5.2",
           "overlap": "Full"
         },
         {
-          "isoCode": "Clause 5.2",
+          "isoCode": "Clause 7.4",
+          "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.1",
           "overlap": "Full"
         }
       ]
@@ -334,8 +342,8 @@ const MAPPING_DATA = {
       "ref": "2.2",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Periodic (annual) risk assessment per asset (CIA)",
-      "isoRaw": "Clause 6.1.2 - Information Security Risk Assessment\nClause 8.2 - Information Security Risk Assessment (Operation)",
+      "requirement": "Risk is assessed at least once a year for every asset, covering confidentiality, integrity and availability",
+      "isoRaw": "Clause 6.1.2 - Information security risk assessment\nClause 8.2 - Information security risk assessment (Operation)",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -357,7 +365,7 @@ const MAPPING_DATA = {
       "ref": "2.3",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Staff awareness/compliance (job desc, agreements, training, acknowledgement)",
+      "requirement": "Staff are made aware of and follow the security policy (job descriptions, agreements, training, sign-off)",
       "isoRaw": "Clause 7.3 - Awareness\nA.6.2 - Terms and conditions of employment\nA.6.3 - Information security awareness, education and training\nA.6.6 - Confidentiality or non-disclosure agreements",
       "overlap": "Full",
       "statusType": "full",
@@ -388,7 +396,7 @@ const MAPPING_DATA = {
       "ref": "2.4",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Need-to-know/least-privilege/time-bound access; privileged user monitoring",
+      "requirement": "Access is need-to-know, least-privilege and time-bound; privileged users are watched closely",
       "isoRaw": "A.5.15 - Access control\nA.5.18 - Access rights\nA.8.2 - Privileged access rights\nA.8.15 - Logging",
       "overlap": "Full",
       "statusType": "full",
@@ -419,8 +427,8 @@ const MAPPING_DATA = {
       "ref": "2.5",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Physical/environmental controls per threat/location",
-      "isoRaw": "A.7.1 - Physical security perimeters\nto\nA.7.5 - Protecting against physical and environmental threats",
+      "requirement": "Physical and environmental controls match the threats and location of each site",
+      "isoRaw": "A.7.1 - Physical security perimeters\nA.7.5 - Protecting against physical and environmental threats",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -429,18 +437,6 @@ const MAPPING_DATA = {
       "connectedIso": [
         {
           "isoCode": "A.7.1",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.2",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.3",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.4",
           "overlap": "Full"
         },
         {
@@ -454,7 +450,7 @@ const MAPPING_DATA = {
       "ref": "2.6",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Vulnerability assessment process + periodic penetration testing",
+      "requirement": "There is a vulnerability assessment process and periodic penetration testing",
       "isoRaw": "A.8.8 - Management of technical vulnerabilities\nA.8.29 - Security testing in development and acceptance",
       "overlap": "Full",
       "statusType": "full",
@@ -477,8 +473,8 @@ const MAPPING_DATA = {
       "ref": "2.7",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "System hardening, default password change, patching",
-      "isoRaw": "A.8.8 - Management of technical vulnerabilities\nA.8.9 - Configuration management",
+      "requirement": "Systems are hardened, default passwords are changed and patches are applied",
+      "isoRaw": "A.8.9 - Configuration management\nA.8.8 - Management of technical vulnerabilities",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -486,11 +482,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.8.8",
+          "isoCode": "A.8.9",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.8.9",
+          "isoCode": "A.8.8",
           "overlap": "Full"
         }
       ]
@@ -500,7 +496,7 @@ const MAPPING_DATA = {
       "ref": "2.8",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Malware protection mechanism",
+      "requirement": "A malware (virus) protection mechanism is in place",
       "isoRaw": "A.8.7 - Protection against malware",
       "overlap": "Full",
       "statusType": "full",
@@ -519,8 +515,8 @@ const MAPPING_DATA = {
       "ref": "2.9",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Strong cryptography/end-to-end encryption for PINs/passwords",
-      "isoRaw": "A.8.24 - Use of cryptography",
+      "requirement": "Strong cryptography / end-to-end encryption protects PINs and passwords",
+      "isoRaw": "A.8.24 - Use of cryptography\nA.5.14 - Information transfer",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -530,6 +526,10 @@ const MAPPING_DATA = {
         {
           "isoCode": "A.8.24",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.14",
+          "overlap": "Full"
         }
       ]
     },
@@ -538,7 +538,7 @@ const MAPPING_DATA = {
       "ref": "2.10",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Firewalls between networks and sites, per security policy",
+      "requirement": "Firewalls sit between networks and sites, set up per the security policy",
       "isoRaw": "A.8.20 - Networks security\nA.8.21 - Security of network services",
       "overlap": "Full",
       "statusType": "full",
@@ -561,7 +561,7 @@ const MAPPING_DATA = {
       "ref": "2.11",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Customer authentication before access/transaction",
+      "requirement": "Customers are authenticated before they can access accounts or make transactions",
       "isoRaw": "A.8.5 - Secure authentication",
       "overlap": "Full",
       "statusType": "full",
@@ -580,7 +580,7 @@ const MAPPING_DATA = {
       "ref": "2.12",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Detailed audit trail, secured, retained through migration",
+      "requirement": "A detailed audit trail exists, is kept secure and survives system migration",
       "isoRaw": "A.8.15 - Logging\nA.5.33 - Protection of records",
       "overlap": "Full",
       "statusType": "full",
@@ -603,7 +603,7 @@ const MAPPING_DATA = {
       "ref": "2.13",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Application integrity, malware-free (incl. purchased systems)",
+      "requirement": "Applications, including bought-in systems, keep data intact and are free of malware",
       "isoRaw": "A.8.26 - Application security requirements\nA.8.29 - Security testing in development and acceptance",
       "overlap": "Full",
       "statusType": "full",
@@ -626,13 +626,13 @@ const MAPPING_DATA = {
       "ref": "2.14",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Data integrity/consistency in databases/warehouses/archives",
+      "requirement": "Data stays accurate and consistent in databases, warehouses and archives",
       "isoRaw": "A.8.9 - Configuration management",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "No dedicated Annex A control; implicit across A.8.x technological controls",
+      "notes": "There is no single ISO control dedicated to database/warehouse integrity; it is covered indirectly across several technology controls.",
       "connectedIso": [
         {
           "isoCode": "A.8.9",
@@ -645,20 +645,20 @@ const MAPPING_DATA = {
       "ref": "2.15",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "No direct back-end DB updates except authorized",
-      "isoRaw": "A.8.32 - Change management\nA.8.4 - Access to source code",
+      "requirement": "Direct back-end database updates are not allowed except with authorisation",
+      "isoRaw": "A.8.32 - Change management\nA.5.3 - Segregation of duties",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO's change management/source-code-access controls cover this indirectly",
+      "notes": "ISO's change management and segregation-of-duties controls cover this indirectly, without naming \"back-end database updates\" specifically.",
       "connectedIso": [
         {
           "isoCode": "A.8.32",
           "overlap": "Partial"
         },
         {
-          "isoCode": "A.8.4",
+          "isoCode": "A.5.3",
           "overlap": "Partial"
         }
       ]
@@ -668,13 +668,13 @@ const MAPPING_DATA = {
       "ref": "2.16",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Cross-border data: segregation, access control, change control, NRB inspection rights",
+      "requirement": "For data on Nepali customers kept or processed abroad: segregation, access control, change control and NRB's right to inspect",
       "isoRaw": "A.5.23 - Information security for use of cloud services\nA.5.15 - Access control\nA.8.32 - Change management",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "The regulator-inspection-rights requirement is NRB-specific; ISO covers the technical controls only",
+      "notes": "The regulator's right to inspect the data centre and systems is an NRB-specific requirement; ISO covers only the technical controls.",
       "connectedIso": [
         {
           "isoCode": "A.5.23",
@@ -695,13 +695,13 @@ const MAPPING_DATA = {
       "ref": "2.17",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Documented migration policy with sign-offs",
+      "requirement": "A documented migration policy exists, with formal sign-off at each stage",
       "isoRaw": "A.8.32 - Change management",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "No dedicated migration control in ISO; covered loosely under change management",
+      "notes": "ISO has no dedicated \"migration policy\" control; this is only covered loosely under change management.",
       "connectedIso": [
         {
           "isoCode": "A.8.32",
@@ -714,7 +714,7 @@ const MAPPING_DATA = {
       "ref": "2.18",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Asset inventory & classification with matching access controls",
+      "requirement": "Assets are recorded, classified and access controls match each classification level",
       "isoRaw": "A.5.9 - Inventory of information and other associated assets\nA.5.12 - Classification of information\nA.5.15 - Access control",
       "overlap": "Full",
       "statusType": "full",
@@ -741,7 +741,7 @@ const MAPPING_DATA = {
       "ref": "2.19",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Additional screening for privileged-access employees",
+      "requirement": "Employees with privileged access go through extra screening before starting the role",
       "isoRaw": "A.6.1 - Screening",
       "overlap": "Full",
       "statusType": "full",
@@ -760,18 +760,14 @@ const MAPPING_DATA = {
       "ref": "2.20",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Data security policy: disposal, portable devices, media, encryption",
-      "isoRaw": "A.7.8 - Equipment siting and protection\nA.7.10 - Storage media\nA.7.14 - Secure disposal or re-use of equipment\nA.8.24 - Use of cryptography",
+      "requirement": "A data security policy covers disposal, portable devices, media handling and encryption",
+      "isoRaw": "A.7.10 - Storage media\nA.7.14 - Secure disposal or re-use of equipment\nA.8.24 - Use of cryptography",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
-        {
-          "isoCode": "A.7.8",
-          "overlap": "Full"
-        },
         {
           "isoCode": "A.7.10",
           "overlap": "Full"
@@ -791,14 +787,18 @@ const MAPPING_DATA = {
       "ref": "2.21",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Wireless network risk evaluation and controls",
-      "isoRaw": "A.8.20 - Networks security",
+      "requirement": "Wireless network risk is evaluated and extra controls are applied if used",
+      "isoRaw": "Clause 6.1.2 - Information security risk assessment\nA.8.20 - Networks security",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO's network security control is general; not wireless-specific",
+      "notes": "ISO's network security control is general; it does not call out wireless networks specifically the way NRB does.",
       "connectedIso": [
+        {
+          "isoCode": "Clause 6.1.2",
+          "overlap": "Partial"
+        },
         {
           "isoCode": "A.8.20",
           "overlap": "Partial"
@@ -810,8 +810,8 @@ const MAPPING_DATA = {
       "ref": "2.22",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Policy/education updated per latest threats",
-      "isoRaw": "A.5.7 - Threat intelligence\nClause 10.1 - Continual Improvement",
+      "requirement": "Policy and staff education are updated to match the latest threats",
+      "isoRaw": "A.5.7 - Threat intelligence\nClause 10.1 - Continual improvement\nA.5.1 - Policies for information security\nA.6.3 - Information security awareness, education and training",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -825,6 +825,14 @@ const MAPPING_DATA = {
         {
           "isoCode": "Clause 10.1",
           "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.1",
+          "overlap": "Full"
+        },
+        {
+          "isoCode": "A.6.3",
+          "overlap": "Full"
         }
       ]
     },
@@ -833,13 +841,13 @@ const MAPPING_DATA = {
       "ref": "2.23",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "ATM CCTV, encryption, key management, segregation of duty",
-      "isoRaw": "A.5.3 - Segregation of duties\nA.7.4 - Physical security monitoring\nA.8.7 - Protection against malware\nA.8.20 - Networks security\nA.8.24 - Use of cryptography",
+      "requirement": "ATMs have CCTV, encryption, key management and segregation of duty controls",
+      "isoRaw": "A.5.3 - Segregation of duties\nA.7.4 - Physical security monitoring\nA.8.24 - Use of cryptography",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ATM-specific prescriptive detail (CCTV/PIN capture rules) is unique to NRB; ISO gives only generic equivalents",
+      "notes": "The ATM-specific detail (CCTV angle, PIN-capture rules) is unique to NRB; ISO gives only general equivalents.",
       "connectedIso": [
         {
           "isoCode": "A.5.3",
@@ -847,14 +855,6 @@ const MAPPING_DATA = {
         },
         {
           "isoCode": "A.7.4",
-          "overlap": "Partial"
-        },
-        {
-          "isoCode": "A.8.7",
-          "overlap": "Partial"
-        },
-        {
-          "isoCode": "A.8.20",
           "overlap": "Partial"
         },
         {
@@ -868,13 +868,13 @@ const MAPPING_DATA = {
       "ref": "2.24",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Card and PIN never under single person's control (dual custody)",
+      "requirement": "Cards and PINs never sit with a single person from production to delivery (dual custody)",
       "isoRaw": "A.5.3 - Segregation of duties",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "Banking-specific application of ISO's general segregation-of-duties principle",
+      "notes": "This is a banking-specific application of ISO's general segregation-of-duties principle.",
       "connectedIso": [
         {
           "isoCode": "A.5.3",
@@ -887,13 +887,13 @@ const MAPPING_DATA = {
       "ref": "2.25",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "POS PIN-based authorization replacing signature-based",
+      "requirement": "POS terminals move from signature-based to PIN-based authorisation",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
       "statusLabel": "NRB Unique (Not in ISO)",
       "statusColor": "#ef4444",
-      "notes": "Card-payment-scheme specific; outside ISO 27001 scope",
+      "notes": "This is specific to the card-payment scheme and sits outside ISO 27001's scope.",
       "connectedIso": []
     },
     {
@@ -901,13 +901,13 @@ const MAPPING_DATA = {
       "ref": "2.26",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Chip-based card migration",
+      "requirement": "Banks migrate from magnetic-stripe cards to chip-based cards",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
       "statusLabel": "NRB Unique (Not in ISO)",
       "statusColor": "#ef4444",
-      "notes": "Card-payment-scheme specific; outside ISO 27001 scope",
+      "notes": "This is specific to the card-payment scheme and sits outside ISO 27001's scope.",
       "connectedIso": []
     },
     {
@@ -915,13 +915,13 @@ const MAPPING_DATA = {
       "ref": "2.27",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "2FA + instant alerts for online card payments",
+      "requirement": "Online card payments use a second authentication factor plus an instant customer alert",
       "isoRaw": "A.8.5 - Secure authentication",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "2FA is covered by ISO; \n\ninstant customer alerting is an NRB-specific addition",
+      "notes": "The two-factor authentication part is covered by ISO; the instant SMS/email alert to the customer is an NRB-specific addition.",
       "connectedIso": [
         {
           "isoCode": "A.8.5",
@@ -934,20 +934,20 @@ const MAPPING_DATA = {
       "ref": "2.28",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Mobile banking: device security, encryption, transaction limits, NPR-only",
-      "isoRaw": "A.8.1 - User endpoint devices\nA.8.24 - Use of cryptography",
+      "requirement": "Mobile banking covers device security, encryption, transaction limits and is NPR-only",
+      "isoRaw": "A.8.24 - Use of cryptography\nA.8.1 - User endpoint devices",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "NPR-currency restriction is a Nepal regulatory rule, not an ISO concept\n\nSpecific transaction-limit rule is an NRB banking regulation, not an ISO concept",
+      "notes": "The Nepali-currency-only rule and the specific transaction-limit rule are Nepal banking regulations, not ISO concepts.",
       "connectedIso": [
         {
-          "isoCode": "A.8.1",
+          "isoCode": "A.8.24",
           "overlap": "Partial"
         },
         {
-          "isoCode": "A.8.24",
+          "isoCode": "A.8.1",
           "overlap": "Partial"
         }
       ]
@@ -957,7 +957,7 @@ const MAPPING_DATA = {
       "ref": "2.29",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Multi-factor authentication for internet banking fund transfers",
+      "requirement": "Fund transfers through internet banking use multi-factor authentication",
       "isoRaw": "A.8.5 - Secure authentication",
       "overlap": "Full",
       "statusType": "full",
@@ -976,7 +976,7 @@ const MAPPING_DATA = {
       "ref": "2.30",
       "sectionId": 2,
       "sectionName": "Information Security",
-      "requirement": "Web application security, latest SSL/TLS on critical apps",
+      "requirement": "Web applications are secured, with the latest SSL/TLS on critical apps",
       "isoRaw": "A.8.26 - Application security requirements\nA.8.24 - Use of cryptography",
       "overlap": "Full",
       "statusType": "full",
@@ -999,7 +999,7 @@ const MAPPING_DATA = {
       "ref": "3.1",
       "sectionId": 3,
       "sectionName": "Information Security Education",
-      "requirement": "Awareness program for employees/vendors/customers/stakeholders",
+      "requirement": "There is a security awareness programme for staff, vendors, customers and other stakeholders",
       "isoRaw": "A.6.3 - Information security awareness, education and training\nClause 7.3 - Awareness",
       "overlap": "Full",
       "statusType": "full",
@@ -1022,13 +1022,13 @@ const MAPPING_DATA = {
       "ref": "3.2",
       "sectionId": 3,
       "sectionName": "Information Security Education",
-      "requirement": "Customer education on device/system security + query response",
+      "requirement": "Customers are educated on device/system security and their queries are answered",
       "isoRaw": "A.6.3 - Information security awareness, education and training",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO's awareness control is primarily staff-focused; customer education is an NRB addition\n\nCustomer query-response SLA is a service-operations topic outside ISO 27001 scope",
+      "notes": "ISO's awareness control is mainly staff-focused; educating customers and answering their queries on time, is an NRB addition.",
       "connectedIso": [
         {
           "isoCode": "A.6.3",
@@ -1041,13 +1041,13 @@ const MAPPING_DATA = {
       "ref": "3.3",
       "sectionId": 3,
       "sectionName": "Information Security Education",
-      "requirement": "Customer authentication system + credential security education",
+      "requirement": "There is a customer authentication system, plus education on keeping credentials safe",
       "isoRaw": "A.8.5 - Secure authentication\nA.6.3 - Information security awareness, education and training",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "Authentication mechanism itself maps fully; customer-facing education does not",
+      "notes": "The authentication mechanism maps fully to ISO; the customer-education part does not.",
       "connectedIso": [
         {
           "isoCode": "A.8.5",
@@ -1064,13 +1064,13 @@ const MAPPING_DATA = {
       "ref": "4.1",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "Published dispute/breach resolution process, loss attribution",
+      "requirement": "The bank publishes a dispute/breach resolution process and how losses are decided",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
       "statusLabel": "NRB Unique (Not in ISO)",
       "statusColor": "#ef4444",
-      "notes": "Consumer protection / financial dispute topic, outside ISO 27001 scope",
+      "notes": "This is a consumer-protection / financial-dispute topic, outside ISO 27001's scope.",
       "connectedIso": []
     },
     {
@@ -1078,13 +1078,13 @@ const MAPPING_DATA = {
       "ref": "4.2",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "Published privacy/security policy and transaction costs",
+      "requirement": "The bank publishes its privacy/security policy and the cost of transactions",
       "isoRaw": "A.5.34 - Privacy and protection of PII",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "Privacy policy publication loosely touches ISO's PII control; cost disclosure has no ISO equivalent",
+      "notes": "Publishing a privacy policy loosely touches ISO's PII control; disclosing transaction costs has no ISO equivalent.",
       "connectedIso": [
         {
           "isoCode": "A.5.34",
@@ -1097,7 +1097,7 @@ const MAPPING_DATA = {
       "ref": "4.3",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "ATM/electronic channel transaction cost disclosure",
+      "requirement": "Transaction costs for ATM/electronic channels are disclosed",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
@@ -1111,7 +1111,7 @@ const MAPPING_DATA = {
       "ref": "4.4",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "Dispute handling mechanism with response-time SLA",
+      "requirement": "There is a dispute-handling mechanism with a promised response time",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
@@ -1125,7 +1125,7 @@ const MAPPING_DATA = {
       "ref": "4.5",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "Grievance handling procedure for disputed transactions",
+      "requirement": "There is a grievance-handling procedure for disputed transactions",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
@@ -1139,7 +1139,7 @@ const MAPPING_DATA = {
       "ref": "4.6",
       "sectionId": 4,
       "sectionName": "Information Disclosure and Grievance Handling",
-      "requirement": "Customer risk/benefit disclosure per e-banking channel",
+      "requirement": "Customers are told the risks and benefits of each e-banking channel",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
@@ -1153,27 +1153,8 @@ const MAPPING_DATA = {
       "ref": "5.1",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Board/senior management accountable for outsourcing risk",
-      "isoRaw": "A.5.19 - Information security in supplier relationships",
-      "overlap": "Full",
-      "statusType": "full",
-      "statusLabel": "Full Overlap",
-      "statusColor": "#10b981",
-      "notes": "",
-      "connectedIso": [
-        {
-          "isoCode": "A.5.19",
-          "overlap": "Full"
-        }
-      ]
-    },
-    {
-      "id": "NRB-5.2",
-      "ref": "5.2",
-      "sectionId": 5,
-      "sectionName": "Outsourcing Management",
-      "requirement": "Risk evaluated before and periodically during outsourcing",
-      "isoRaw": "A.5.19 - Information security in supplier relationships\nA.5.20 - Addressing information security within supplier agreements\nA.5.22 - Monitoring, review and change management of supplier services",
+      "requirement": "The Board/senior management is accountable for outsourcing risk",
+      "isoRaw": "A.5.19 - Information security in supplier relationships\nClause 5.1 - Leadership and commitment",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1185,7 +1166,26 @@ const MAPPING_DATA = {
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.20",
+          "isoCode": "Clause 5.1",
+          "overlap": "Full"
+        }
+      ]
+    },
+    {
+      "id": "NRB-5.2",
+      "ref": "5.2",
+      "sectionId": 5,
+      "sectionName": "Outsourcing Management",
+      "requirement": "Outsourcing risk is assessed before starting and periodically afterwards",
+      "isoRaw": "A.5.19 - Information security in supplier relationships\nA.5.22 - Monitoring, review and change management of supplier services",
+      "overlap": "Full",
+      "statusType": "full",
+      "statusLabel": "Full Overlap",
+      "statusColor": "#10b981",
+      "notes": "",
+      "connectedIso": [
+        {
+          "isoCode": "A.5.19",
           "overlap": "Full"
         },
         {
@@ -1199,8 +1199,8 @@ const MAPPING_DATA = {
       "ref": "5.3",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Outsourced ops subject to bank's security/privacy policy",
-      "isoRaw": "A.5.20 - Addressing information security within supplier agreements\nA.5.19 - Information security in supplier relationships",
+      "requirement": "Outsourced operations must follow the bank's own security/privacy policy",
+      "isoRaw": "A.5.20 - Addressing information security within supplier agreements",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1209,10 +1209,6 @@ const MAPPING_DATA = {
       "connectedIso": [
         {
           "isoCode": "A.5.20",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.5.19",
           "overlap": "Full"
         }
       ]
@@ -1222,13 +1218,13 @@ const MAPPING_DATA = {
       "ref": "5.4",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Non-interference with regulatory activity; NRB/BAFIA inspection rights",
+      "requirement": "Outsourcing must not block NRB/BAFIA's regulatory or inspection activity",
       "isoRaw": "—",
       "overlap": "None - NRB unique",
       "statusType": "none",
       "statusLabel": "NRB Unique (Not in ISO)",
       "statusColor": "#ef4444",
-      "notes": "Regulator inspection-rights clause is a Nepal banking regulatory requirement\n\nNRB/BAFIA inspection-rights clause is Nepal banking regulatory requirement",
+      "notes": "A regulator's right to inspect outsourced operations is a Nepal banking regulatory requirement, not an ISO concept.",
       "connectedIso": []
     },
     {
@@ -1236,8 +1232,8 @@ const MAPPING_DATA = {
       "ref": "5.5",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Outsourcing monitoring process, SLA accountability, provider review",
-      "isoRaw": "A.5.20 - Addressing information security within supplier agreements\nA.5.22 - Monitoring, review and change management of supplier services",
+      "requirement": "Outsourcing is monitored, SLAs are tracked and providers are reviewed",
+      "isoRaw": "A.5.22 - Monitoring, review and change management of supplier services\nA.5.20 - Addressing information security within supplier agreements",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1245,11 +1241,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.20",
+          "isoCode": "A.5.22",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.22",
+          "isoCode": "A.5.20",
           "overlap": "Full"
         }
       ]
@@ -1259,7 +1255,7 @@ const MAPPING_DATA = {
       "ref": "5.6",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Availability/integrity/confidentiality maintained through sub-outsourcing",
+      "requirement": "Availability, integrity and confidentiality hold up even with sub-outsourcing",
       "isoRaw": "A.5.21 - Managing information security in the ICT supply chain\nA.5.19 - Information security in supplier relationships",
       "overlap": "Full",
       "statusType": "full",
@@ -1282,21 +1278,21 @@ const MAPPING_DATA = {
       "ref": "5.7",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Service continuity; contingency for alternate/in-house fallback",
-      "isoRaw": "A.5.22 - Monitoring, review and change management of supplier services\nA.5.30 - ICT readiness for business continuity (partial)",
-      "overlap": "Full / Partial",
-      "statusType": "mixed",
-      "statusLabel": "Full / Partial",
+      "requirement": "There is a plan to keep the service running if the outsourced provider fails",
+      "isoRaw": "A.5.30 - ICT readiness for business continuity\nA.5.22 - Monitoring, review and change management of supplier services",
+      "overlap": "Full",
+      "statusType": "full",
+      "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.22",
+          "isoCode": "A.5.30",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.30",
-          "overlap": "Partial"
+          "isoCode": "A.5.22",
+          "overlap": "Full"
         }
       ]
     },
@@ -1305,13 +1301,13 @@ const MAPPING_DATA = {
       "ref": "5.8",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Country risk factors for offshore outsourcing; exit strategy",
-      "isoRaw": "A.5.19 - Information security in supplier relationships (partial)\nA.5.30 - ICT readiness for business continuity (partial)",
+      "requirement": "Country risk is considered for offshore outsourcing, with an exit strategy",
+      "isoRaw": "A.5.19 - Information security in supplier relationships\nA.5.30 - ICT readiness for business continuity",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "Country/political risk assessment is more explicit in NRB than in ISO's generic supplier control",
+      "notes": "Country/political risk assessment is spelled out more explicitly in NRB than in ISO's general supplier control.",
       "connectedIso": [
         {
           "isoCode": "A.5.19",
@@ -1328,8 +1324,8 @@ const MAPPING_DATA = {
       "ref": "5.9",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Source code/escrow arrangement for critical application continuity",
-      "isoRaw": "A.8.4 - Access to source code\nA.5.30 - ICT readiness for business continuity (partial)",
+      "requirement": "Source code or an escrow arrangement protects continuity of critical applications",
+      "isoRaw": "A.8.4 - Access to source code\nA.5.30 - ICT readiness for business continuity",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
@@ -1351,8 +1347,8 @@ const MAPPING_DATA = {
       "ref": "5.10",
       "sectionId": 5,
       "sectionName": "Outsourcing Management",
-      "requirement": "Data jurisdiction/regulation clarity for cloud/emerging tech",
-      "isoRaw": "A.5.22 - Monitoring, review and change management of supplier services\nA.5.23 - Information security for use of cloud services",
+      "requirement": "Data jurisdiction and rules are clear for cloud and other new technology",
+      "isoRaw": "A.5.23 - Information security for use of cloud services\nA.5.22 - Monitoring, review and change management of supplier services",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1360,11 +1356,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.22",
+          "isoCode": "A.5.23",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.23",
+          "isoCode": "A.5.22",
           "overlap": "Full"
         }
       ]
@@ -1374,8 +1370,8 @@ const MAPPING_DATA = {
       "ref": "6.1",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Board/management oversight of safe IT operating environment",
-      "isoRaw": "Clause 5.1 - Leadership and Commitment\nClause 8.1 - Operational Planning and Control",
+      "requirement": "The Board/management oversees a safe IT operating environment",
+      "isoRaw": "Clause 5.1 - Leadership and commitment\nClause 8.1 - Operational planning and control",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1397,8 +1393,8 @@ const MAPPING_DATA = {
       "ref": "6.2",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Segregation of duty; documented admin procedures; least privilege",
-      "isoRaw": "A.5.3 - Segregation of duties\nA.5.37 - Documented operating procedures\nA.8.3 - Information access restriction\nA.8.9 - Configuration management",
+      "requirement": "Duties are segregated; admin procedures are documented; least privilege applies",
+      "isoRaw": "A.5.3 - Segregation of duties\nA.5.37 - Documented operating procedures\nA.8.3 - Information access restriction",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1416,10 +1412,6 @@ const MAPPING_DATA = {
         {
           "isoCode": "A.8.3",
           "overlap": "Full"
-        },
-        {
-          "isoCode": "A.8.9",
-          "overlap": "Full"
         }
       ]
     },
@@ -1428,13 +1420,13 @@ const MAPPING_DATA = {
       "ref": "6.3",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Joint custody for critical system functions",
+      "requirement": "Critical system functions need joint (dual) custody",
       "isoRaw": "A.5.3 - Segregation of duties\nA.8.2 - Privileged access rights",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO's segregation/privileged-access controls cover the principle; NRB's function list is more prescriptive",
+      "notes": "ISO's segregation-of-duties and privileged-access controls cover the principle but NRB's specific list of \"joint custody\" functions is more detailed.",
       "connectedIso": [
         {
           "isoCode": "A.5.3",
@@ -1451,7 +1443,7 @@ const MAPPING_DATA = {
       "ref": "6.4",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Formal change management process",
+      "requirement": "There is a formal change management process",
       "isoRaw": "A.8.32 - Change management",
       "overlap": "Full",
       "statusType": "full",
@@ -1470,7 +1462,7 @@ const MAPPING_DATA = {
       "ref": "6.5",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Migration policy; audit trail through migration phases",
+      "requirement": "A migration policy exists, with an audit trail through every migration phase",
       "isoRaw": "A.8.32 - Change management\nA.8.15 - Logging",
       "overlap": "Partial",
       "statusType": "partial",
@@ -1493,8 +1485,8 @@ const MAPPING_DATA = {
       "ref": "6.6",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Vendor/consultant access to critical systems, supervised like staff",
-      "isoRaw": "A.5.19 - Information security in supplier relationships\nA.8.2 - Privileged access rights",
+      "requirement": "Vendor/consultant access to critical systems is supervised like staff access",
+      "isoRaw": "A.8.2 - Privileged access rights\nA.5.19 - Information security in supplier relationships",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1502,11 +1494,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.19",
+          "isoCode": "A.8.2",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.8.2",
+          "isoCode": "A.5.19",
           "overlap": "Full"
         }
       ]
@@ -1516,7 +1508,7 @@ const MAPPING_DATA = {
       "ref": "6.7",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Adequate resources for reliability; standby components maintained",
+      "requirement": "Enough resources are kept for reliability; standby components are maintained",
       "isoRaw": "A.8.6 - Capacity management\nA.8.14 - Redundancy of information processing facilities",
       "overlap": "Full",
       "statusType": "full",
@@ -1539,8 +1531,8 @@ const MAPPING_DATA = {
       "ref": "6.8",
       "sectionId": 6,
       "sectionName": "IT Operations",
-      "requirement": "Periodic IT environment risk assessment with mitigation strategy",
-      "isoRaw": "Clause 6.1.2 - Information Security Risk Assessment\nClause 6.1.3 - Information Security Risk Treatment\nClause 8.2 - Information Security Risk Assessment (Operation)",
+      "requirement": "IT environment risk is assessed periodically, with a mitigation strategy",
+      "isoRaw": "Clause 8.2 - Information security risk assessment (Operation)\nClause 6.1.3 - Information security risk treatment",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1548,15 +1540,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "Clause 6.1.2",
+          "isoCode": "Clause 8.2",
           "overlap": "Full"
         },
         {
           "isoCode": "Clause 6.1.3",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "Clause 8.2",
           "overlap": "Full"
         }
       ]
@@ -1566,7 +1554,7 @@ const MAPPING_DATA = {
       "ref": "7.1",
       "sectionId": 7,
       "sectionName": "Information Systems Acquisition, Development and Implementation",
-      "requirement": "Documented/approved functional, security, performance requirements",
+      "requirement": "Functional, security and performance requirements are documented and approved",
       "isoRaw": "A.8.26 - Application security requirements",
       "overlap": "Full",
       "statusType": "full",
@@ -1585,7 +1573,7 @@ const MAPPING_DATA = {
       "ref": "7.2",
       "sectionId": 7,
       "sectionName": "Information Systems Acquisition, Development and Implementation",
-      "requirement": "Security requirements incorporated at each SDLC stage",
+      "requirement": "Security requirements are built in at every stage of the development lifecycle",
       "isoRaw": "A.8.25 - Secure development life cycle\nA.8.27 - Secure system architecture and engineering principles",
       "overlap": "Full",
       "statusType": "full",
@@ -1608,7 +1596,7 @@ const MAPPING_DATA = {
       "ref": "7.3",
       "sectionId": 7,
       "sectionName": "Information Systems Acquisition, Development and Implementation",
-      "requirement": "Forensic-grade audit trail meeting regulatory/legal needs",
+      "requirement": "A forensic-grade audit trail meets regulatory and legal needs",
       "isoRaw": "A.8.15 - Logging",
       "overlap": "Full",
       "statusType": "full",
@@ -1627,17 +1615,17 @@ const MAPPING_DATA = {
       "ref": "7.4",
       "sectionId": 7,
       "sectionName": "Information Systems Acquisition, Development and Implementation",
-      "requirement": "Source code review; vulnerabilities fixed before implementation",
-      "isoRaw": "A.8.28 - Secure coding (Partial)\nA.8.29 - Security testing in development and acceptance",
-      "overlap": "Full / Partial",
-      "statusType": "mixed",
-      "statusLabel": "Full / Partial",
+      "requirement": "Source code is reviewed and vulnerabilities are fixed before go-live",
+      "isoRaw": "A.8.28 - Secure coding\nA.8.29 - Security testing in development and acceptance",
+      "overlap": "Full",
+      "statusType": "full",
+      "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
         {
           "isoCode": "A.8.28",
-          "overlap": "Partial"
+          "overlap": "Full"
         },
         {
           "isoCode": "A.8.29",
@@ -1650,16 +1638,16 @@ const MAPPING_DATA = {
       "ref": "8.1",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Board-approved BCP Policy, detailed procedures, resourcing, review",
-      "isoRaw": "A.5.24 - Information security incident management planning and preparation\nA.5.29 - Information security during disruption\nA.5.30 - ICT readiness for business continuity",
-      "overlap": "Full / Partial",
-      "statusType": "mixed",
-      "statusLabel": "Full / Partial",
+      "requirement": "A board-approved BCP policy exists, with detailed procedures, resourcing and review",
+      "isoRaw": "A.5.30 - ICT readiness for business continuity\nA.5.29 - Information security during disruption\nA.5.24 - Information security incident management planning and preparation",
+      "overlap": "Full",
+      "statusType": "full",
+      "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.24",
+          "isoCode": "A.5.30",
           "overlap": "Full"
         },
         {
@@ -1667,7 +1655,7 @@ const MAPPING_DATA = {
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.30",
+          "isoCode": "A.5.24",
           "overlap": "Full"
         }
       ]
@@ -1677,13 +1665,13 @@ const MAPPING_DATA = {
       "ref": "8.2",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Head of BCP appointed with defined responsibilities",
+      "requirement": "A Head of BCP is appointed with clear responsibilities",
       "isoRaw": "A.5.29 - Information security during disruption",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO doesn't mandate a named BCP role explicitly; NRB does",
+      "notes": "ISO doesn't specifically require naming a \"Head of BCP\" role; NRB does.",
       "connectedIso": [
         {
           "isoCode": "A.5.29",
@@ -1696,8 +1684,8 @@ const MAPPING_DATA = {
       "ref": "8.3",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "BCP scope: disasters, threats, regulatory, outsourcing, multi-country, people",
-      "isoRaw": "A.5.29 - Information security during disruption\nA.5.30 - ICT readiness for business continuity",
+      "requirement": "BCP scope covers disasters, threats, regulation, outsourcing, multiple countries and people",
+      "isoRaw": "A.5.30 - ICT readiness for business continuity\nA.5.29 - Information security during disruption",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1705,11 +1693,11 @@ const MAPPING_DATA = {
       "notes": "",
       "connectedIso": [
         {
-          "isoCode": "A.5.29",
+          "isoCode": "A.5.30",
           "overlap": "Full"
         },
         {
-          "isoCode": "A.5.30",
+          "isoCode": "A.5.29",
           "overlap": "Full"
         }
       ]
@@ -1719,13 +1707,13 @@ const MAPPING_DATA = {
       "ref": "8.4",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "BCP team formed at head office and branches",
-      "isoRaw": "A.5.29 - Information security during disruption\n[The organization shall plan how to maintain information security at an appropriate level during disruption.]",
+      "requirement": "A BCP team is formed at head office and at branches",
+      "isoRaw": "A.5.29 - Information security during disruption",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "ISO does not mandate but NRB does.",
+      "notes": "ISO doesn't require a named team at every branch; NRB does.",
       "connectedIso": [
         {
           "isoCode": "A.5.29",
@@ -1738,8 +1726,8 @@ const MAPPING_DATA = {
       "ref": "8.5",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Annual testing (planned/unplanned), internal audit involvement, amendments",
-      "isoRaw": "A.5.30 - ICT readiness for business continuity\nClause 9.2.1 - Internal Audit - General",
+      "requirement": "The BCP is tested every year (planned and unplanned), with internal audit involved",
+      "isoRaw": "A.5.30 - ICT readiness for business continuity\nClause 9.2.1 - Internal audit - General",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1761,7 +1749,7 @@ const MAPPING_DATA = {
       "ref": "8.6",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "RPO/RTO defined; DR strategy chosen to meet them",
+      "requirement": "RPO/RTO are defined and the DR strategy is chosen to meet them",
       "isoRaw": "A.5.30 - ICT readiness for business continuity",
       "overlap": "Full",
       "statusType": "full",
@@ -1780,7 +1768,7 @@ const MAPPING_DATA = {
       "ref": "8.7",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Standby site/system matched to RPO/RTO",
+      "requirement": "The standby site/system matches the defined RPO/RTO",
       "isoRaw": "A.5.30 - ICT readiness for business continuity",
       "overlap": "Full",
       "statusType": "full",
@@ -1799,8 +1787,8 @@ const MAPPING_DATA = {
       "ref": "8.8",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Disaster mitigation: mirroring, UPS/generator, surge protection, DC environment",
-      "isoRaw": "A.5.30 - ICT readiness for business continuity\nA.7.5 - Protecting against physical and environmental threats\nA.7.11 - Supporting utilities\nA.8.14 - Redundancy of information processing facilities",
+      "requirement": "Disaster mitigation covers mirroring, UPS/generator, surge protection and DC environment",
+      "isoRaw": "A.5.30 - ICT readiness for business continuity\nA.7.11 - Supporting utilities\nA.8.14 - Redundancy of information processing facilities",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1809,10 +1797,6 @@ const MAPPING_DATA = {
       "connectedIso": [
         {
           "isoCode": "A.5.30",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.5",
           "overlap": "Full"
         },
         {
@@ -1830,7 +1814,7 @@ const MAPPING_DATA = {
       "ref": "8.9",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "High-availability architecture, no single point of failure",
+      "requirement": "High-availability architecture avoids any single point of failure",
       "isoRaw": "A.8.14 - Redundancy of information processing facilities",
       "overlap": "Full",
       "statusType": "full",
@@ -1849,8 +1833,8 @@ const MAPPING_DATA = {
       "ref": "8.10",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "DC location risk minimization; restricted physical access",
-      "isoRaw": "A.7.1 - Physical security perimeters\nto\nA.7.5 - Protecting against physical and environmental threats",
+      "requirement": "Data centre location risk is minimised, with restricted physical access",
+      "isoRaw": "A.7.1 - Physical security perimeters\nA.7.5 - Protecting against physical and environmental threats",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1859,18 +1843,6 @@ const MAPPING_DATA = {
       "connectedIso": [
         {
           "isoCode": "A.7.1",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.2",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.3",
-          "overlap": "Full"
-        },
-        {
-          "isoCode": "A.7.4",
           "overlap": "Full"
         },
         {
@@ -1884,7 +1856,7 @@ const MAPPING_DATA = {
       "ref": "8.11",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Periodic DC-DR transaction/data integrity checks (EOD/BOD)",
+      "requirement": "DC-DR transaction/data integrity is checked periodically (start/end of day)",
       "isoRaw": "A.5.30 - ICT readiness for business continuity",
       "overlap": "Partial",
       "statusType": "partial",
@@ -1903,24 +1875,24 @@ const MAPPING_DATA = {
       "ref": "8.12",
       "sectionId": 8,
       "sectionName": "Business Continuity and Disaster Recovery Planning",
-      "requirement": "Incident response plan: detection, recovery, comms, regulatory alert",
-      "isoRaw": "A.5.24 - Information security incident management planning and preparation\nA.5.25 - Assessment and decision on information security events\nA.5.26 - Response to information security incidents",
+      "requirement": "An incident response plan covers detection, recovery, communication and regulatory alerts",
+      "isoRaw": "A.5.25 - Assessment and decision on information security events\nA.5.26 - Response to information security incidents\nA.5.24 - Information security incident management planning and preparation",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
-      "notes": "Regulatory-alert step is an NRB-specific addition to ISO's generic incident response",
+      "notes": "Alerting the regulator is an NRB-specific addition to ISO's general incident-response requirement.",
       "connectedIso": [
-        {
-          "isoCode": "A.5.24",
-          "overlap": "Full"
-        },
         {
           "isoCode": "A.5.25",
           "overlap": "Full"
         },
         {
           "isoCode": "A.5.26",
+          "overlap": "Full"
+        },
+        {
+          "isoCode": "A.5.24",
           "overlap": "Full"
         }
       ]
@@ -1930,8 +1902,8 @@ const MAPPING_DATA = {
       "ref": "9.1",
       "sectionId": 9,
       "sectionName": "IS Audit",
-      "requirement": "Board/audit committee resources audit team for adequate IT coverage",
-      "isoRaw": "Clause 9.2.2 - Internal Audit - Programme\nA.5.35 - Independent review of information security",
+      "requirement": "The Board/audit committee resources the audit team for adequate IT coverage",
+      "isoRaw": "Clause 9.2.2 - Internal audit - Programme\nA.5.35 - Independent review of information security",
       "overlap": "Full",
       "statusType": "full",
       "statusLabel": "Full Overlap",
@@ -1953,11 +1925,11 @@ const MAPPING_DATA = {
       "ref": "9.2",
       "sectionId": 9,
       "sectionName": "IS Audit",
-      "requirement": "IS audit may be outsourced; planning/risk/follow-up stays with bank",
-      "isoRaw": "Clause 9.2.2 - Internal Audit - Programme\nA.5.35 - Independent review of information security (Partial)",
-      "overlap": "Full / Partial",
-      "statusType": "mixed",
-      "statusLabel": "Full / Partial",
+      "requirement": "IS audit can be outsourced but planning, risk and follow-up stay with the bank",
+      "isoRaw": "Clause 9.2.2 - Internal audit - Programme\nA.5.35 - Independent review of information security",
+      "overlap": "Full",
+      "statusType": "full",
+      "statusLabel": "Full Overlap",
       "statusColor": "#10b981",
       "notes": "",
       "connectedIso": [
@@ -1967,7 +1939,7 @@ const MAPPING_DATA = {
         },
         {
           "isoCode": "A.5.35",
-          "overlap": "Partial"
+          "overlap": "Full"
         }
       ]
     },
@@ -1976,13 +1948,13 @@ const MAPPING_DATA = {
       "ref": "10.1",
       "sectionId": 10,
       "sectionName": "Fraud Management",
-      "requirement": "Electronic attacks identified, documented, reported to NRB monthly",
+      "requirement": "Electronic attacks are identified, documented and reported to NRB every month",
       "isoRaw": "A.5.25 - Assessment and decision on information security events\nA.5.26 - Response to information security incidents",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "The mandatory monthly regulator reporting obligation is unique to NRB; ISO covers incident detection/response generally",
+      "notes": "The mandatory monthly regulator report is unique to NRB; ISO covers detection and response generally, not this specific reporting duty.",
       "connectedIso": [
         {
           "isoCode": "A.5.25",
@@ -1999,13 +1971,13 @@ const MAPPING_DATA = {
       "ref": "10.2",
       "sectionId": 10,
       "sectionName": "Fraud Management",
-      "requirement": "Customer fraud awareness (identification, avoidance, protection)",
+      "requirement": "Customers are made aware of fraud (spotting it, avoiding it, protecting themselves)",
       "isoRaw": "A.6.3 - Information security awareness, education and training",
       "overlap": "Partial",
       "statusType": "partial",
       "statusLabel": "Partial Overlap",
       "statusColor": "#f59e0b",
-      "notes": "",
+      "notes": "ISO's awareness control is mainly staff-focused; extending it to customer fraud awareness is an NRB addition.",
       "connectedIso": [
         {
           "isoCode": "A.6.3",
@@ -2071,7 +2043,7 @@ const MAPPING_DATA = {
       "theme": "Clause 5: Leadership",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "4 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -2083,6 +2055,12 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-1.7",
           "nrbRef": "1.7",
+          "overlap": "Full",
+          "color": "#10b981"
+        },
+        {
+          "nrbId": "NRB-5.1",
+          "nrbRef": "5.1",
           "overlap": "Full",
           "color": "#10b981"
         },
@@ -2108,8 +2086,8 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-1.1",
           "nrbRef": "1.1",
-          "overlap": "Full",
-          "color": "#10b981"
+          "overlap": "Partial",
+          "color": "#f59e0b"
         },
         {
           "nrbId": "NRB-2.1",
@@ -2150,18 +2128,11 @@ const MAPPING_DATA = {
       "title": "Actions to address risks and opportunities - General",
       "category": "Clauses",
       "theme": "Clause 6: Planning",
-      "isMapped": true,
-      "status": "full",
-      "badge": "1 NRB Link",
-      "color": "#10b981",
-      "connectedNrb": [
-        {
-          "nrbId": "NRB-1.5",
-          "nrbRef": "1.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        }
-      ]
+      "isMapped": false,
+      "status": "unmapped",
+      "badge": "Not Mapped in NRB",
+      "color": "#64748b",
+      "connectedNrb": []
     },
     {
       "id": "ISO-Clause_6.1.2",
@@ -2193,10 +2164,10 @@ const MAPPING_DATA = {
           "color": "#10b981"
         },
         {
-          "nrbId": "NRB-6.8",
-          "nrbRef": "6.8",
-          "overlap": "Full",
-          "color": "#10b981"
+          "nrbId": "NRB-2.21",
+          "nrbRef": "2.21",
+          "overlap": "Partial",
+          "color": "#f59e0b"
         }
       ]
     },
@@ -2261,11 +2232,18 @@ const MAPPING_DATA = {
       "title": "Resources",
       "category": "Clauses",
       "theme": "Clause 7: Support",
-      "isMapped": false,
-      "status": "unmapped",
-      "badge": "Not Mapped in NRB",
-      "color": "#64748b",
-      "connectedNrb": []
+      "isMapped": true,
+      "status": "full",
+      "badge": "1 NRB Link",
+      "color": "#10b981",
+      "connectedNrb": [
+        {
+          "nrbId": "NRB-1.7",
+          "nrbRef": "1.7",
+          "overlap": "Full",
+          "color": "#10b981"
+        }
+      ]
     },
     {
       "id": "ISO-Clause_7.2",
@@ -2317,11 +2295,18 @@ const MAPPING_DATA = {
       "title": "Communication",
       "category": "Clauses",
       "theme": "Clause 7: Support",
-      "isMapped": false,
-      "status": "unmapped",
-      "badge": "Not Mapped in NRB",
-      "color": "#64748b",
-      "connectedNrb": []
+      "isMapped": true,
+      "status": "full",
+      "badge": "1 NRB Link",
+      "color": "#10b981",
+      "connectedNrb": [
+        {
+          "nrbId": "NRB-2.1",
+          "nrbRef": "2.1",
+          "overlap": "Full",
+          "color": "#10b981"
+        }
+      ]
     },
     {
       "id": "ISO-Clause_7.5.1",
@@ -2386,15 +2371,9 @@ const MAPPING_DATA = {
       "theme": "Clause 8: Operation",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
-        {
-          "nrbId": "NRB-1.5",
-          "nrbRef": "1.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
         {
           "nrbId": "NRB-2.2",
           "nrbRef": "2.2",
@@ -2492,9 +2471,15 @@ const MAPPING_DATA = {
       "theme": "Clause 9: Performance Evaluation",
       "isMapped": true,
       "status": "full",
-      "badge": "1 NRB Link",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
+        {
+          "nrbId": "NRB-1.1",
+          "nrbRef": "1.1",
+          "overlap": "Partial",
+          "color": "#f59e0b"
+        },
         {
           "nrbId": "NRB-1.4",
           "nrbRef": "1.4",
@@ -2509,18 +2494,11 @@ const MAPPING_DATA = {
       "title": "Management review inputs",
       "category": "Clauses",
       "theme": "Clause 9: Performance Evaluation",
-      "isMapped": true,
-      "status": "full",
-      "badge": "1 NRB Link",
-      "color": "#10b981",
-      "connectedNrb": [
-        {
-          "nrbId": "NRB-1.4",
-          "nrbRef": "1.4",
-          "overlap": "Full",
-          "color": "#10b981"
-        }
-      ]
+      "isMapped": false,
+      "status": "unmapped",
+      "badge": "Not Mapped in NRB",
+      "color": "#64748b",
+      "connectedNrb": []
     },
     {
       "id": "ISO-Clause_9.3.3",
@@ -2573,18 +2551,24 @@ const MAPPING_DATA = {
       "theme": "A.5 Organizational Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "2 NRB Links",
+      "badge": "3 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
           "nrbId": "NRB-1.1",
           "nrbRef": "1.1",
-          "overlap": "Full",
-          "color": "#10b981"
+          "overlap": "Partial",
+          "color": "#f59e0b"
         },
         {
           "nrbId": "NRB-2.1",
           "nrbRef": "2.1",
+          "overlap": "Full",
+          "color": "#10b981"
+        },
+        {
+          "nrbId": "NRB-2.22",
+          "nrbRef": "2.22",
           "overlap": "Full",
           "color": "#10b981"
         }
@@ -2623,9 +2607,27 @@ const MAPPING_DATA = {
       "theme": "A.5 Organizational Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "4 NRB Links",
+      "badge": "7 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
+        {
+          "nrbId": "NRB-1.2",
+          "nrbRef": "1.2",
+          "overlap": "Full",
+          "color": "#10b981"
+        },
+        {
+          "nrbId": "NRB-1.8",
+          "nrbRef": "1.8",
+          "overlap": "Full",
+          "color": "#10b981"
+        },
+        {
+          "nrbId": "NRB-2.15",
+          "nrbRef": "2.15",
+          "overlap": "Partial",
+          "color": "#f59e0b"
+        },
         {
           "nrbId": "NRB-2.23",
           "nrbRef": "2.23",
@@ -2806,11 +2808,18 @@ const MAPPING_DATA = {
       "title": "Information transfer",
       "category": "Annex A",
       "theme": "A.5 Organizational Controls",
-      "isMapped": false,
-      "status": "unmapped",
-      "badge": "Not Mapped in NRB",
-      "color": "#64748b",
-      "connectedNrb": []
+      "isMapped": true,
+      "status": "full",
+      "badge": "1 NRB Link",
+      "color": "#10b981",
+      "connectedNrb": [
+        {
+          "nrbId": "NRB-2.9",
+          "nrbRef": "2.9",
+          "overlap": "Full",
+          "color": "#10b981"
+        }
+      ]
     },
     {
       "id": "ISO-A.5.15",
@@ -2894,7 +2903,7 @@ const MAPPING_DATA = {
       "theme": "A.5 Organizational Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "7 NRB Links",
+      "badge": "6 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -2912,12 +2921,6 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-5.2",
           "nrbRef": "5.2",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
-        {
-          "nrbId": "NRB-5.3",
-          "nrbRef": "5.3",
           "overlap": "Full",
           "color": "#10b981"
         },
@@ -2949,15 +2952,9 @@ const MAPPING_DATA = {
       "theme": "A.5 Organizational Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
-        {
-          "nrbId": "NRB-5.2",
-          "nrbRef": "5.2",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
         {
           "nrbId": "NRB-5.3",
           "nrbRef": "5.3",
@@ -3203,8 +3200,8 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-5.7",
           "nrbRef": "5.7",
-          "overlap": "Partial",
-          "color": "#f59e0b"
+          "overlap": "Full",
+          "color": "#10b981"
         },
         {
           "nrbId": "NRB-5.8",
@@ -3320,7 +3317,7 @@ const MAPPING_DATA = {
       "theme": "A.5 Organizational Controls",
       "isMapped": true,
       "status": "partial",
-      "badge": "1 NRB Link (Partial)",
+      "badge": "1 NRB Link",
       "color": "#f59e0b",
       "connectedNrb": [
         {
@@ -3351,8 +3348,8 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-9.2",
           "nrbRef": "9.2",
-          "overlap": "Partial",
-          "color": "#f59e0b"
+          "overlap": "Full",
+          "color": "#10b981"
         }
       ]
     },
@@ -3382,8 +3379,8 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-1.1",
           "nrbRef": "1.1",
-          "overlap": "Full",
-          "color": "#10b981"
+          "overlap": "Partial",
+          "color": "#f59e0b"
         },
         {
           "nrbId": "NRB-6.2",
@@ -3439,7 +3436,7 @@ const MAPPING_DATA = {
       "theme": "A.6 People Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "6 NRB Links",
+      "badge": "7 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -3451,6 +3448,12 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-2.3",
           "nrbRef": "2.3",
+          "overlap": "Full",
+          "color": "#10b981"
+        },
+        {
+          "nrbId": "NRB-2.22",
+          "nrbRef": "2.22",
           "overlap": "Full",
           "color": "#10b981"
         },
@@ -3578,24 +3581,11 @@ const MAPPING_DATA = {
       "title": "Physical entry",
       "category": "Annex A",
       "theme": "A.7 Physical Controls",
-      "isMapped": true,
-      "status": "full",
-      "badge": "2 NRB Links",
-      "color": "#10b981",
-      "connectedNrb": [
-        {
-          "nrbId": "NRB-2.5",
-          "nrbRef": "2.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
-        {
-          "nrbId": "NRB-8.10",
-          "nrbRef": "8.10",
-          "overlap": "Full",
-          "color": "#10b981"
-        }
-      ]
+      "isMapped": false,
+      "status": "unmapped",
+      "badge": "Not Mapped in NRB",
+      "color": "#64748b",
+      "connectedNrb": []
     },
     {
       "id": "ISO-A.7.3",
@@ -3603,24 +3593,11 @@ const MAPPING_DATA = {
       "title": "Securing offices, rooms and facilities",
       "category": "Annex A",
       "theme": "A.7 Physical Controls",
-      "isMapped": true,
-      "status": "full",
-      "badge": "2 NRB Links",
-      "color": "#10b981",
-      "connectedNrb": [
-        {
-          "nrbId": "NRB-2.5",
-          "nrbRef": "2.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
-        {
-          "nrbId": "NRB-8.10",
-          "nrbRef": "8.10",
-          "overlap": "Full",
-          "color": "#10b981"
-        }
-      ]
+      "isMapped": false,
+      "status": "unmapped",
+      "badge": "Not Mapped in NRB",
+      "color": "#64748b",
+      "connectedNrb": []
     },
     {
       "id": "ISO-A.7.4",
@@ -3629,27 +3606,15 @@ const MAPPING_DATA = {
       "category": "Annex A",
       "theme": "A.7 Physical Controls",
       "isMapped": true,
-      "status": "full",
-      "badge": "3 NRB Links",
-      "color": "#10b981",
+      "status": "partial",
+      "badge": "1 NRB Link",
+      "color": "#f59e0b",
       "connectedNrb": [
-        {
-          "nrbId": "NRB-2.5",
-          "nrbRef": "2.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
         {
           "nrbId": "NRB-2.23",
           "nrbRef": "2.23",
           "overlap": "Partial",
           "color": "#f59e0b"
-        },
-        {
-          "nrbId": "NRB-8.10",
-          "nrbRef": "8.10",
-          "overlap": "Full",
-          "color": "#10b981"
         }
       ]
     },
@@ -3661,18 +3626,12 @@ const MAPPING_DATA = {
       "theme": "A.7 Physical Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
           "nrbId": "NRB-2.5",
           "nrbRef": "2.5",
-          "overlap": "Full",
-          "color": "#10b981"
-        },
-        {
-          "nrbId": "NRB-8.8",
-          "nrbRef": "8.8",
           "overlap": "Full",
           "color": "#10b981"
         },
@@ -3714,18 +3673,11 @@ const MAPPING_DATA = {
       "title": "Equipment siting and protection",
       "category": "Annex A",
       "theme": "A.7 Physical Controls",
-      "isMapped": true,
-      "status": "full",
-      "badge": "1 NRB Link",
-      "color": "#10b981",
-      "connectedNrb": [
-        {
-          "nrbId": "NRB-2.20",
-          "nrbRef": "2.20",
-          "overlap": "Full",
-          "color": "#10b981"
-        }
-      ]
+      "isMapped": false,
+      "status": "unmapped",
+      "badge": "Not Mapped in NRB",
+      "color": "#64748b",
+      "connectedNrb": []
     },
     {
       "id": "ISO-A.7.9",
@@ -3828,7 +3780,7 @@ const MAPPING_DATA = {
       "theme": "A.8 Technological Controls",
       "isMapped": true,
       "status": "partial",
-      "badge": "1 NRB Link (Partial)",
+      "badge": "1 NRB Link",
       "color": "#f59e0b",
       "connectedNrb": [
         {
@@ -3897,15 +3849,9 @@ const MAPPING_DATA = {
       "theme": "A.8 Technological Controls",
       "isMapped": true,
       "status": "partial",
-      "badge": "2 NRB Links (Partial)",
+      "badge": "1 NRB Link",
       "color": "#f59e0b",
       "connectedNrb": [
-        {
-          "nrbId": "NRB-2.15",
-          "nrbRef": "2.15",
-          "overlap": "Partial",
-          "color": "#f59e0b"
-        },
         {
           "nrbId": "NRB-5.9",
           "nrbRef": "5.9",
@@ -3978,7 +3924,7 @@ const MAPPING_DATA = {
       "theme": "A.8 Technological Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "2 NRB Links",
+      "badge": "1 NRB Link",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -3986,12 +3932,6 @@ const MAPPING_DATA = {
           "nrbRef": "2.8",
           "overlap": "Full",
           "color": "#10b981"
-        },
-        {
-          "nrbId": "NRB-2.23",
-          "nrbRef": "2.23",
-          "overlap": "Partial",
-          "color": "#f59e0b"
         }
       ]
     },
@@ -4028,7 +3968,7 @@ const MAPPING_DATA = {
       "theme": "A.8 Technological Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -4042,12 +3982,6 @@ const MAPPING_DATA = {
           "nrbRef": "2.14",
           "overlap": "Partial",
           "color": "#f59e0b"
-        },
-        {
-          "nrbId": "NRB-6.2",
-          "nrbRef": "6.2",
-          "overlap": "Full",
-          "color": "#10b981"
         }
       ]
     },
@@ -4223,7 +4157,7 @@ const MAPPING_DATA = {
       "theme": "A.8 Technological Controls",
       "isMapped": true,
       "status": "full",
-      "badge": "3 NRB Links",
+      "badge": "2 NRB Links",
       "color": "#10b981",
       "connectedNrb": [
         {
@@ -4235,12 +4169,6 @@ const MAPPING_DATA = {
         {
           "nrbId": "NRB-2.21",
           "nrbRef": "2.21",
-          "overlap": "Partial",
-          "color": "#f59e0b"
-        },
-        {
-          "nrbId": "NRB-2.23",
-          "nrbRef": "2.23",
           "overlap": "Partial",
           "color": "#f59e0b"
         }
@@ -4408,15 +4336,15 @@ const MAPPING_DATA = {
       "category": "Annex A",
       "theme": "A.8 Technological Controls",
       "isMapped": true,
-      "status": "partial",
-      "badge": "1 NRB Link (Partial)",
-      "color": "#f59e0b",
+      "status": "full",
+      "badge": "1 NRB Link",
+      "color": "#10b981",
       "connectedNrb": [
         {
           "nrbId": "NRB-7.4",
           "nrbRef": "7.4",
-          "overlap": "Partial",
-          "color": "#f59e0b"
+          "overlap": "Full",
+          "color": "#10b981"
         }
       ]
     },
@@ -4552,6 +4480,22 @@ const MAPPING_DATA = {
   "links": [
     {
       "source": "NRB-1.1",
+      "target": "ISO-Clause_5.2",
+      "isoCode": "Clause 5.2",
+      "nrbRef": "1.1",
+      "overlap": "Partial",
+      "color": "#f59e0b"
+    },
+    {
+      "source": "NRB-1.1",
+      "target": "ISO-A.5.37",
+      "isoCode": "A.5.37",
+      "nrbRef": "1.1",
+      "overlap": "Partial",
+      "color": "#f59e0b"
+    },
+    {
+      "source": "NRB-1.1",
       "target": "ISO-Clause_5.1",
       "isoCode": "Clause 5.1",
       "nrbRef": "1.1",
@@ -4560,27 +4504,19 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-1.1",
-      "target": "ISO-Clause_5.2",
-      "isoCode": "Clause 5.2",
-      "nrbRef": "1.1",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-1.1",
       "target": "ISO-A.5.1",
       "isoCode": "A.5.1",
       "nrbRef": "1.1",
-      "overlap": "Full",
-      "color": "#10b981"
+      "overlap": "Partial",
+      "color": "#f59e0b"
     },
     {
       "source": "NRB-1.1",
-      "target": "ISO-A.5.37",
-      "isoCode": "A.5.37",
+      "target": "ISO-Clause_9.3.1",
+      "isoCode": "Clause 9.3.1",
       "nrbRef": "1.1",
-      "overlap": "Full",
-      "color": "#10b981"
+      "overlap": "Partial",
+      "color": "#f59e0b"
     },
     {
       "source": "NRB-1.2",
@@ -4594,6 +4530,14 @@ const MAPPING_DATA = {
       "source": "NRB-1.2",
       "target": "ISO-A.5.2",
       "isoCode": "A.5.2",
+      "nrbRef": "1.2",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
+      "source": "NRB-1.2",
+      "target": "ISO-A.5.3",
+      "isoCode": "A.5.3",
       "nrbRef": "1.2",
       "overlap": "Full",
       "color": "#10b981"
@@ -4631,22 +4575,6 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
-      "source": "NRB-1.4",
-      "target": "ISO-Clause_9.3.2",
-      "isoCode": "Clause 9.3.2",
-      "nrbRef": "1.4",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-1.5",
-      "target": "ISO-Clause_6.1.1",
-      "isoCode": "Clause 6.1.1",
-      "nrbRef": "1.5",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
       "source": "NRB-1.5",
       "target": "ISO-Clause_6.1.2",
       "isoCode": "Clause 6.1.2",
@@ -4658,14 +4586,6 @@ const MAPPING_DATA = {
       "source": "NRB-1.5",
       "target": "ISO-Clause_6.1.3",
       "isoCode": "Clause 6.1.3",
-      "nrbRef": "1.5",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-1.5",
-      "target": "ISO-Clause_8.2",
-      "isoCode": "Clause 8.2",
       "nrbRef": "1.5",
       "overlap": "Full",
       "color": "#10b981"
@@ -4687,6 +4607,14 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
+      "source": "NRB-1.7",
+      "target": "ISO-Clause_7.1",
+      "isoCode": "Clause 7.1",
+      "nrbRef": "1.7",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
       "source": "NRB-1.8",
       "target": "ISO-Clause_5.3",
       "isoCode": "Clause 5.3",
@@ -4703,10 +4631,10 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
-      "source": "NRB-1.9",
-      "target": "ISO-A.5.8",
-      "isoCode": "A.5.8",
-      "nrbRef": "1.9",
+      "source": "NRB-1.8",
+      "target": "ISO-A.5.3",
+      "isoCode": "A.5.3",
+      "nrbRef": "1.8",
       "overlap": "Full",
       "color": "#10b981"
     },
@@ -4735,6 +4663,14 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
+      "source": "NRB-1.9",
+      "target": "ISO-A.5.8",
+      "isoCode": "A.5.8",
+      "nrbRef": "1.9",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
       "source": "NRB-1.10",
       "target": "ISO-A.5.31",
       "isoCode": "A.5.31",
@@ -4744,16 +4680,24 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.1",
-      "target": "ISO-A.5.1",
-      "isoCode": "A.5.1",
+      "target": "ISO-Clause_5.2",
+      "isoCode": "Clause 5.2",
       "nrbRef": "2.1",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-2.1",
-      "target": "ISO-Clause_5.2",
-      "isoCode": "Clause 5.2",
+      "target": "ISO-Clause_7.4",
+      "isoCode": "Clause 7.4",
+      "nrbRef": "2.1",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
+      "source": "NRB-2.1",
+      "target": "ISO-A.5.1",
+      "isoCode": "A.5.1",
       "nrbRef": "2.1",
       "overlap": "Full",
       "color": "#10b981"
@@ -4848,30 +4792,6 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.5",
-      "target": "ISO-A.7.2",
-      "isoCode": "A.7.2",
-      "nrbRef": "2.5",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-2.5",
-      "target": "ISO-A.7.3",
-      "isoCode": "A.7.3",
-      "nrbRef": "2.5",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-2.5",
-      "target": "ISO-A.7.4",
-      "isoCode": "A.7.4",
-      "nrbRef": "2.5",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-2.5",
       "target": "ISO-A.7.5",
       "isoCode": "A.7.5",
       "nrbRef": "2.5",
@@ -4896,16 +4816,16 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.7",
-      "target": "ISO-A.8.8",
-      "isoCode": "A.8.8",
+      "target": "ISO-A.8.9",
+      "isoCode": "A.8.9",
       "nrbRef": "2.7",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-2.7",
-      "target": "ISO-A.8.9",
-      "isoCode": "A.8.9",
+      "target": "ISO-A.8.8",
+      "isoCode": "A.8.8",
       "nrbRef": "2.7",
       "overlap": "Full",
       "color": "#10b981"
@@ -4922,6 +4842,14 @@ const MAPPING_DATA = {
       "source": "NRB-2.9",
       "target": "ISO-A.8.24",
       "isoCode": "A.8.24",
+      "nrbRef": "2.9",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
+      "source": "NRB-2.9",
+      "target": "ISO-A.5.14",
+      "isoCode": "A.5.14",
       "nrbRef": "2.9",
       "overlap": "Full",
       "color": "#10b981"
@@ -5000,8 +4928,8 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.15",
-      "target": "ISO-A.8.4",
-      "isoCode": "A.8.4",
+      "target": "ISO-A.5.3",
+      "isoCode": "A.5.3",
       "nrbRef": "2.15",
       "overlap": "Partial",
       "color": "#f59e0b"
@@ -5072,14 +5000,6 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.20",
-      "target": "ISO-A.7.8",
-      "isoCode": "A.7.8",
-      "nrbRef": "2.20",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-2.20",
       "target": "ISO-A.7.10",
       "isoCode": "A.7.10",
       "nrbRef": "2.20",
@@ -5101,6 +5021,14 @@ const MAPPING_DATA = {
       "nrbRef": "2.20",
       "overlap": "Full",
       "color": "#10b981"
+    },
+    {
+      "source": "NRB-2.21",
+      "target": "ISO-Clause_6.1.2",
+      "isoCode": "Clause 6.1.2",
+      "nrbRef": "2.21",
+      "overlap": "Partial",
+      "color": "#f59e0b"
     },
     {
       "source": "NRB-2.21",
@@ -5127,6 +5055,22 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
+      "source": "NRB-2.22",
+      "target": "ISO-A.5.1",
+      "isoCode": "A.5.1",
+      "nrbRef": "2.22",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
+      "source": "NRB-2.22",
+      "target": "ISO-A.6.3",
+      "isoCode": "A.6.3",
+      "nrbRef": "2.22",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
       "source": "NRB-2.23",
       "target": "ISO-A.5.3",
       "isoCode": "A.5.3",
@@ -5138,22 +5082,6 @@ const MAPPING_DATA = {
       "source": "NRB-2.23",
       "target": "ISO-A.7.4",
       "isoCode": "A.7.4",
-      "nrbRef": "2.23",
-      "overlap": "Partial",
-      "color": "#f59e0b"
-    },
-    {
-      "source": "NRB-2.23",
-      "target": "ISO-A.8.7",
-      "isoCode": "A.8.7",
-      "nrbRef": "2.23",
-      "overlap": "Partial",
-      "color": "#f59e0b"
-    },
-    {
-      "source": "NRB-2.23",
-      "target": "ISO-A.8.20",
-      "isoCode": "A.8.20",
       "nrbRef": "2.23",
       "overlap": "Partial",
       "color": "#f59e0b"
@@ -5184,16 +5112,16 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-2.28",
-      "target": "ISO-A.8.1",
-      "isoCode": "A.8.1",
+      "target": "ISO-A.8.24",
+      "isoCode": "A.8.24",
       "nrbRef": "2.28",
       "overlap": "Partial",
       "color": "#f59e0b"
     },
     {
       "source": "NRB-2.28",
-      "target": "ISO-A.8.24",
-      "isoCode": "A.8.24",
+      "target": "ISO-A.8.1",
+      "isoCode": "A.8.1",
       "nrbRef": "2.28",
       "overlap": "Partial",
       "color": "#f59e0b"
@@ -5279,17 +5207,17 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
-      "source": "NRB-5.2",
-      "target": "ISO-A.5.19",
-      "isoCode": "A.5.19",
-      "nrbRef": "5.2",
+      "source": "NRB-5.1",
+      "target": "ISO-Clause_5.1",
+      "isoCode": "Clause 5.1",
+      "nrbRef": "5.1",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-5.2",
-      "target": "ISO-A.5.20",
-      "isoCode": "A.5.20",
+      "target": "ISO-A.5.19",
+      "isoCode": "A.5.19",
       "nrbRef": "5.2",
       "overlap": "Full",
       "color": "#10b981"
@@ -5311,25 +5239,17 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
-      "source": "NRB-5.3",
-      "target": "ISO-A.5.19",
-      "isoCode": "A.5.19",
-      "nrbRef": "5.3",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
       "source": "NRB-5.5",
-      "target": "ISO-A.5.20",
-      "isoCode": "A.5.20",
+      "target": "ISO-A.5.22",
+      "isoCode": "A.5.22",
       "nrbRef": "5.5",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-5.5",
-      "target": "ISO-A.5.22",
-      "isoCode": "A.5.22",
+      "target": "ISO-A.5.20",
+      "isoCode": "A.5.20",
       "nrbRef": "5.5",
       "overlap": "Full",
       "color": "#10b981"
@@ -5352,19 +5272,19 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-5.7",
-      "target": "ISO-A.5.22",
-      "isoCode": "A.5.22",
+      "target": "ISO-A.5.30",
+      "isoCode": "A.5.30",
       "nrbRef": "5.7",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-5.7",
-      "target": "ISO-A.5.30",
-      "isoCode": "A.5.30",
+      "target": "ISO-A.5.22",
+      "isoCode": "A.5.22",
       "nrbRef": "5.7",
-      "overlap": "Partial",
-      "color": "#f59e0b"
+      "overlap": "Full",
+      "color": "#10b981"
     },
     {
       "source": "NRB-5.8",
@@ -5400,16 +5320,16 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-5.10",
-      "target": "ISO-A.5.22",
-      "isoCode": "A.5.22",
+      "target": "ISO-A.5.23",
+      "isoCode": "A.5.23",
       "nrbRef": "5.10",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-5.10",
-      "target": "ISO-A.5.23",
-      "isoCode": "A.5.23",
+      "target": "ISO-A.5.22",
+      "isoCode": "A.5.22",
       "nrbRef": "5.10",
       "overlap": "Full",
       "color": "#10b981"
@@ -5450,14 +5370,6 @@ const MAPPING_DATA = {
       "source": "NRB-6.2",
       "target": "ISO-A.8.3",
       "isoCode": "A.8.3",
-      "nrbRef": "6.2",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-6.2",
-      "target": "ISO-A.8.9",
-      "isoCode": "A.8.9",
       "nrbRef": "6.2",
       "overlap": "Full",
       "color": "#10b981"
@@ -5504,16 +5416,16 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-6.6",
-      "target": "ISO-A.5.19",
-      "isoCode": "A.5.19",
+      "target": "ISO-A.8.2",
+      "isoCode": "A.8.2",
       "nrbRef": "6.6",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-6.6",
-      "target": "ISO-A.8.2",
-      "isoCode": "A.8.2",
+      "target": "ISO-A.5.19",
+      "isoCode": "A.5.19",
       "nrbRef": "6.6",
       "overlap": "Full",
       "color": "#10b981"
@@ -5536,8 +5448,8 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-6.8",
-      "target": "ISO-Clause_6.1.2",
-      "isoCode": "Clause 6.1.2",
+      "target": "ISO-Clause_8.2",
+      "isoCode": "Clause 8.2",
       "nrbRef": "6.8",
       "overlap": "Full",
       "color": "#10b981"
@@ -5546,14 +5458,6 @@ const MAPPING_DATA = {
       "source": "NRB-6.8",
       "target": "ISO-Clause_6.1.3",
       "isoCode": "Clause 6.1.3",
-      "nrbRef": "6.8",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-6.8",
-      "target": "ISO-Clause_8.2",
-      "isoCode": "Clause 8.2",
       "nrbRef": "6.8",
       "overlap": "Full",
       "color": "#10b981"
@@ -5595,8 +5499,8 @@ const MAPPING_DATA = {
       "target": "ISO-A.8.28",
       "isoCode": "A.8.28",
       "nrbRef": "7.4",
-      "overlap": "Partial",
-      "color": "#f59e0b"
+      "overlap": "Full",
+      "color": "#10b981"
     },
     {
       "source": "NRB-7.4",
@@ -5608,8 +5512,8 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-8.1",
-      "target": "ISO-A.5.24",
-      "isoCode": "A.5.24",
+      "target": "ISO-A.5.30",
+      "isoCode": "A.5.30",
       "nrbRef": "8.1",
       "overlap": "Full",
       "color": "#10b981"
@@ -5624,8 +5528,8 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-8.1",
-      "target": "ISO-A.5.30",
-      "isoCode": "A.5.30",
+      "target": "ISO-A.5.24",
+      "isoCode": "A.5.24",
       "nrbRef": "8.1",
       "overlap": "Full",
       "color": "#10b981"
@@ -5640,16 +5544,16 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-8.3",
-      "target": "ISO-A.5.29",
-      "isoCode": "A.5.29",
+      "target": "ISO-A.5.30",
+      "isoCode": "A.5.30",
       "nrbRef": "8.3",
       "overlap": "Full",
       "color": "#10b981"
     },
     {
       "source": "NRB-8.3",
-      "target": "ISO-A.5.30",
-      "isoCode": "A.5.30",
+      "target": "ISO-A.5.29",
+      "isoCode": "A.5.29",
       "nrbRef": "8.3",
       "overlap": "Full",
       "color": "#10b981"
@@ -5704,14 +5608,6 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-8.8",
-      "target": "ISO-A.7.5",
-      "isoCode": "A.7.5",
-      "nrbRef": "8.8",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-8.8",
       "target": "ISO-A.7.11",
       "isoCode": "A.7.11",
       "nrbRef": "8.8",
@@ -5744,30 +5640,6 @@ const MAPPING_DATA = {
     },
     {
       "source": "NRB-8.10",
-      "target": "ISO-A.7.2",
-      "isoCode": "A.7.2",
-      "nrbRef": "8.10",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-8.10",
-      "target": "ISO-A.7.3",
-      "isoCode": "A.7.3",
-      "nrbRef": "8.10",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-8.10",
-      "target": "ISO-A.7.4",
-      "isoCode": "A.7.4",
-      "nrbRef": "8.10",
-      "overlap": "Full",
-      "color": "#10b981"
-    },
-    {
-      "source": "NRB-8.10",
       "target": "ISO-A.7.5",
       "isoCode": "A.7.5",
       "nrbRef": "8.10",
@@ -5781,14 +5653,6 @@ const MAPPING_DATA = {
       "nrbRef": "8.11",
       "overlap": "Partial",
       "color": "#f59e0b"
-    },
-    {
-      "source": "NRB-8.12",
-      "target": "ISO-A.5.24",
-      "isoCode": "A.5.24",
-      "nrbRef": "8.12",
-      "overlap": "Full",
-      "color": "#10b981"
     },
     {
       "source": "NRB-8.12",
@@ -5807,6 +5671,14 @@ const MAPPING_DATA = {
       "color": "#10b981"
     },
     {
+      "source": "NRB-8.12",
+      "target": "ISO-A.5.24",
+      "isoCode": "A.5.24",
+      "nrbRef": "8.12",
+      "overlap": "Full",
+      "color": "#10b981"
+    },
+    {
       "source": "NRB-9.1",
       "target": "ISO-Clause_9.2.2",
       "isoCode": "Clause 9.2.2",
@@ -5835,8 +5707,8 @@ const MAPPING_DATA = {
       "target": "ISO-A.5.35",
       "isoCode": "A.5.35",
       "nrbRef": "9.2",
-      "overlap": "Partial",
-      "color": "#f59e0b"
+      "overlap": "Full",
+      "color": "#10b981"
     },
     {
       "source": "NRB-10.1",
