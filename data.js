@@ -5864,3 +5864,10 @@ const MAPPING_DATA = {
     }
   ]
 };
+
+if (typeof window !== 'undefined') {
+  window.MAPPING_DATA = MAPPING_DATA;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = MAPPING_DATA;
+}

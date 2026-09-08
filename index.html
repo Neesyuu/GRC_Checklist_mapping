@@ -28,6 +28,8 @@
       </div>
     </div>
 
+
+
     <!-- Quick Legend -->
     <div class="legend-bar">
       <div class="legend-item" data-filter="full" id="legendFull">
@@ -49,6 +51,13 @@
 
     <!-- Actions -->
     <div class="header-actions">
+      <a href="admin.html" class="btn btn-outline" id="btnAdminPanel" title="Open Admin Panel to edit requirements, clauses, and links" style="text-decoration:none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+        <span>Admin / Edit Data</span>
+      </a>
       <button class="btn btn-outline" id="btnExportCsv" title="Export Mappings to CSV">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -128,6 +137,10 @@
       <span class="focus-badge">FOCUS VIEW</span>
       <span class="focus-text" id="focusBannerText">Showing mapped clauses only</span>
       <button class="btn btn-sm btn-outline focus-return-btn" id="btnDeselectFocus" title="Return to full view (Esc)">✕ Deselect / Return</button>
+    </div>
+    <div class="custom-data-badge" id="customDataBadge" style="display: none; align-items: center; gap: 6px; background: rgba(37, 99, 235, 0.18); border: 1px solid rgba(59, 130, 246, 0.4); padding: 3px 10px; border-radius: var(--radius-full); font-size: 0.72rem; color: #93c5fd;">
+      <span>✏️ Custom Data Active</span>
+      <button id="btnResetCustomData" style="background:none; border:none; color:#f87171; text-decoration:underline; cursor:pointer; font-size:0.72rem; font-weight:600; padding:0 2px;" title="Clear edits and reset to baseline data.js">Reset to Defaults</button>
     </div>
     <div class="info-stat">
       <span>Showing:</span> <strong id="visibleNrbCount">87</strong> NRB items

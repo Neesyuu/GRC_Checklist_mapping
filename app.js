@@ -67,18 +67,39 @@
     legendNone: document.getElementById('legendNone')
   };
 
+  // Load data: check localStorage for custom edited data, otherwise use baseline data.js
+  let isCustomDataActive = false;
+  function getActiveData() {
+    try {
+      const stored = localStorage.getItem('NRB_ISO_CUSTOM_MAPPING_DATA');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && parsed.nrbItems && parsed.isoItems && parsed.links) {
+          isCustomDataActive = true;
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.warn('Could not load custom data from localStorage:', e);
+    }
+    isCustomDataActive = false;
+    return window.MAPPING_DATA || (typeof MAPPING_DATA !== 'undefined' ? MAPPING_DATA : null);
+  }
+
+  const DATA = getActiveData();
+
   // Pre-index data for rapid lookups
   const nrbMap = new Map();
-  MAPPING_DATA.nrbItems.forEach(item => nrbMap.set(item.id, item));
+  DATA.nrbItems.forEach(item => nrbMap.set(item.id, item));
 
   const isoMap = new Map();
-  MAPPING_DATA.isoItems.forEach(item => isoMap.set(item.id, item));
+  DATA.isoItems.forEach(item => isoMap.set(item.id, item));
 
   // Map links by source and target
   const linksBySource = new Map();
   const linksByTarget = new Map();
 
-  MAPPING_DATA.links.forEach(link => {
+  DATA.links.forEach(link => {
     if (!linksBySource.has(link.source)) linksBySource.set(link.source, []);
     linksBySource.get(link.source).push(link);
 
@@ -112,6 +133,21 @@
     renderNrbList();
     renderIsoList();
     bindEvents();
+    applyFilters();
+
+    if (isCustomDataActive) {
+      const badge = document.getElementById('customDataBadge');
+      if (badge) badge.style.display = 'inline-flex';
+      const resetBtn = document.getElementById('btnResetCustomData');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (confirm('Revert all custom data back to baseline data.js? Any unsaved edits will be removed.')) {
+            localStorage.removeItem('NRB_ISO_CUSTOM_MAPPING_DATA');
+            window.location.reload();
+          }
+        });
+      }
+    }
     
     setTimeout(() => {
       updateSpiderWeb();
@@ -134,7 +170,7 @@
 
   // --- Populate Section Select ---
   function populateSectionDropdown() {
-    MAPPING_DATA.nrbSections.forEach(sec => {
+    DATA.nrbSections.forEach(sec => {
       const opt = document.createElement('option');
       opt.value = sec.id;
       opt.textContent = `Section ${sec.id}: ${sec.name}`;
@@ -146,8 +182,8 @@
   function renderNrbList() {
     elements.nrbList.innerHTML = '';
 
-    MAPPING_DATA.nrbSections.forEach(sec => {
-      const itemsInSec = MAPPING_DATA.nrbItems.filter(item => item.sectionId === sec.id);
+    DATA.nrbSections.forEach(sec => {
+      const itemsInSec = DATA.nrbItems.filter(item => item.sectionId === sec.id);
 
       const secGroup = document.createElement('div');
       secGroup.className = 'section-group';
@@ -254,11 +290,15 @@
   // --- Render ISO 27001 List ---
   function renderIsoList() {
     elements.isoList.innerHTML = '';
+    if (elements.nrbUniqueNotice) {
+      elements.nrbUniqueNotice.style.display = 'none';
+      elements.isoList.appendChild(elements.nrbUniqueNotice);
+    }
 
     const themes = [];
     const themeMap = new Map();
 
-    MAPPING_DATA.isoItems.forEach(item => {
+    DATA.isoItems.forEach(item => {
       if (!themeMap.has(item.theme)) {
         themeMap.set(item.theme, []);
         themes.push(item.theme);
@@ -305,18 +345,19 @@
 
   // Create Individual ISO Control Card
   function createIsoCard(item) {
+    const isMapped = item.isMapped !== undefined ? item.isMapped : ((item.totalCount > 0) || (item.connectedNrb && item.connectedNrb.length > 0));
     const card = document.createElement('div');
-    const isUnmapped = !item.isMapped;
+    const isUnmapped = !isMapped;
     card.className = `clause-card iso-card ${isUnmapped ? 'iso-unmapped' : ''}`;
     card.id = `card-${item.id}`;
     card.dataset.id = item.id;
     card.dataset.code = item.code;
     card.dataset.category = item.category;
     card.dataset.theme = item.theme;
-    card.dataset.mapped = item.isMapped ? 'true' : 'false';
+    card.dataset.mapped = isMapped ? 'true' : 'false';
 
     const port = document.createElement('div');
-    port.className = `anchor-port ${item.isMapped ? 'port-iso' : 'port-none'}`;
+    port.className = `anchor-port ${isMapped ? 'port-iso' : 'port-none'}`;
     port.id = `port-${item.id}`;
     port.title = `Anchor: ${item.code}`;
     card.appendChild(port);
@@ -368,7 +409,7 @@
 
     const visibleLinks = [];
 
-    MAPPING_DATA.links.forEach(link => {
+    DATA.links.forEach(link => {
       const srcCard = document.getElementById(`card-${link.source}`);
       const tgtCard = document.getElementById(`card-${link.target}`);
 
@@ -692,7 +733,7 @@
     let visibleNrb = 0;
     let visibleIso = 0;
 
-    MAPPING_DATA.nrbItems.forEach(item => {
+    DATA.nrbItems.forEach(item => {
       const card = document.getElementById(`card-${item.id}`);
       if (!card) return;
 
@@ -723,20 +764,21 @@
       }
     });
 
-    MAPPING_DATA.nrbSections.forEach(sec => {
+    DATA.nrbSections.forEach(sec => {
       const secGroup = document.getElementById(`nrb-sec-group-${sec.id}`);
       if (!secGroup) return;
       const visibleChildren = secGroup.querySelectorAll('.nrb-card:not(.filtered-out)');
       secGroup.style.display = visibleChildren.length > 0 ? '' : 'none';
     });
 
-    MAPPING_DATA.isoItems.forEach(item => {
+    DATA.isoItems.forEach(item => {
       const card = document.getElementById(`card-${item.id}`);
       if (!card) return;
 
       let match = true;
 
-      if (state.isoScope === 'mapped' && !item.isMapped) {
+      const isMapped = item.isMapped !== undefined ? item.isMapped : ((item.totalCount > 0) || (item.connectedNrb && item.connectedNrb.length > 0));
+      if (state.isoScope === 'mapped' && !isMapped) {
         match = false;
       }
 
@@ -786,9 +828,9 @@
   }
 
   function updateStatsStrip() {
-    elements.countFull.textContent = MAPPING_DATA.stats.fullNrb;
-    elements.countPartial.textContent = MAPPING_DATA.stats.partialNrb;
-    elements.countNone.textContent = MAPPING_DATA.stats.noneNrb;
+    elements.countFull.textContent = DATA.stats.fullNrb;
+    elements.countPartial.textContent = DATA.stats.partialNrb;
+    elements.countNone.textContent = DATA.stats.noneNrb;
   }
 
   function resetFilters() {
@@ -820,7 +862,7 @@
     const headers = ['NRB Ref', 'NRB Section', 'NRB Requirement Summary', 'Overlap Status', 'Mapped ISO 27001 Controls', 'Audit & Gap Notes'];
     const rows = [headers];
 
-    MAPPING_DATA.nrbItems.forEach(item => {
+    DATA.nrbItems.forEach(item => {
       const mappedIsoStr = item.connectedIso.map(c => `${c.isoCode} (${c.overlap})`).join('; ') || '—';
       rows.push([
         `"${item.ref}"`,
